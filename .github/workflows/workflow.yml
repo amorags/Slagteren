@@ -1,0 +1,18 @@
+name: Run Playwright tests
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - run: dotnet build && pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+
+      - run: dotnet test
