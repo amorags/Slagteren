@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mr+Dafoe&family=Oswald:wght@700&display=swap');
+
+.hero {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  height: 255px;
+  background: url("https://as2.ftcdn.net/v2/jpg/01/68/47/35/1000_F_168473569_HgQrDQf3bkvOHyl5wfwe8frlsAfUfagn.jpg") no-repeat center center;
+  background-size: cover;
+}
+.hero__text-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.hero__text {
+  color: #ffffff;
+  text-align: center;
+}
+.hero__pre-heading {
+  margin-bottom: 5px;
+  font-size: 40px;
+  line-height: 1;
+  font-family: "Mr Dafoe", sans-serif;
+}
+.hero__heading {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+.category__wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 65px;
+  margin-bottom: 110px;
+}
+.wrapper {
+  margin: 0 auto;
+  width: 1170px;
+  max-width: 100%;
+  padding: 0 15px;
+}
+.category__sidebar {
+  min-width: 200px;
+  width: 18.85965%;
+  max-width: 100%;
+}
+.category__sidebar-heading {
+  margin-top: 11px;
+  margin-bottom: 22px;
+  padding-left: 15px;
+  font-size: 21px;
+  font-family: "Montserrat",sans-serif;
+}
+.category__sidebar-list {
+  margin-bottom: 43px;
+}
+.category__sidebar-list-item {
+  display: block;
+  position: relative;
+  padding: 5px 15px;
+  color: #717171;
+  border-radius: 100em;
+}
+.category__main {
+  width: 76.57895%;
+  max-width: 100%;
+}
+h1 {
+  font-size: 33px;
+  font-weight: 700;
+  font-family: "Montserrat",sans-serif;
+  text-transform: none;
+  padding-left: 16px;
+  margin-bottom: 30px;
+}
+ion-card {
+  width: calc(100%/3 - 26px);
+  margin-bottom: 26px;
+  :hover {
+    cursor: pointer;
+  }
+}

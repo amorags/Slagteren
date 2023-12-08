@@ -1,0 +1,49 @@
+<ion-content class="ion-no-padding">
+  <section class="hero">
+    <div class="hero__text-container">
+      <div class="hero__text">
+        <div class="hero__pre-heading">Slagterens</div>
+        <div class="hero__heading">Webshop</div>
+      </div>
+    </div>
+  </section>
+  <div class="category__wrapper wrapper">
+    <aside class="category__sidebar">
+      <ion-list-header class="category__sidebar-heading">Produkter</ion-list-header>
+      <ion-list lines="none" class="category__sidebar-list">
+        <ion-item class="category__sidebar-list-item link" href="/webshop/oksekod/">Oksekød</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/svinekod/">Svinekød</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/kalvekod/">Kalvekød</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/fjerkrae/">Fjerkræ</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/polser/">Pølser</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/rogvarer/">Røgvarer</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/palaeg/">Pålæg</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/salat-og-delikatesse/">Salat og Delikatesse</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/desserter/">Desserter</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/lam/">Lam</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/faerdigretter/">Færdigretter - frost</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="/webshop/kodpakker/">Kødpakker</ion-item>
+      </ion-list>
+    </aside>
+
+    <main class="main category__main">
+      <h1 class="category__heading alt smaller">Webshop</h1>
+      <ion-grid>
+        <ion-row>
+          <ion-card *ngFor="let product of state.products">
+            <img alt="{{ product.product_name }}" [src]="product.product_img" />
+            <ion-card-header>
+              <ion-card-title>{{ product.product_name }}</ion-card-title>
+              <ion-card-subtitle>{{ product.price_per_kilo }}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              {{ product.description }}
+            </ion-card-content>
+          </ion-card>
+        </ion-row>
+      </ion-grid>
+    </main>
+  </div>
+
+
+</ion-content>
