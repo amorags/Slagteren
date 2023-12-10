@@ -1,6 +1,6 @@
 ﻿namespace infrastructure.DataModels;
 
-public class Customers
+public class Customer
 {
     public int Customer_Id { get; set; }
     public string FirstName { get; set; }
