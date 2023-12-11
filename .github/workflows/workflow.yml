@@ -34,7 +34,9 @@ jobs:
 
       - name: Run tests once API is running (sleep interval set to 60 seconds)
         run: cd playwright && sleep 60 && dotnet test
-             kill $API_PID
         env:
           pgconn: ${{ secrets.PGCONN }}
+          
+      - name: Shut down the running process
+        run: kill $API_PID
           
