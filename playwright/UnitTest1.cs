@@ -14,11 +14,24 @@ public class Tests : PageTest
 
     
     [Test]
-    public async Task pwCreateBox()
+    public async Task MyTest()
     {
+        await Page.GotoAsync("http://localhost:4200/");
 
-        await Page.GotoAsync("https://www.dr.dk/");
-        
+        await Page.GetByRole(AriaRole.Button).First.ClickAsync();
+
+        await Page.GetByRole(AriaRole.Button).Nth(1).ClickAsync();
+
+        await Page.GetByPlaceholder("Search").ClickAsync();
+
+        await Page.GetByPlaceholder("Search").FillAsync("yes");
+
+        await Page.GetByLabel("reset").ClickAsync();
+
+        await Page.GetByRole(AriaRole.Link, new() { Name = "Oksekød" }).ClickAsync();
+
+        await Page.GetByRole(AriaRole.Img, new() { Name = "din slagter logo" }).ClickAsync();
+
     }
     
     
