@@ -23,7 +23,7 @@ public class PasswordHashRepository
     public void Create(int customer_id, string hash, string salt, string algorithm)
     {
         const string sql = $@"
-    INSERT INTO password_hash (user_id, hash, salt, algorithm)
+    INSERT INTO password_hash (customer_id, hash, salt, algorithm)
     VALUES (@userId, @hash, @salt, @algorithm)
 ";
         using (var conn = _dataSource.OpenConnection())
@@ -64,7 +64,7 @@ public class PasswordHashRepository
         const string sql = $@"
 UPDATE password_hash
 SET hash = @hash, salt = @salt, algorithm = @algorithm
-WHERE user_id = @userId
+WHERE customer_id = @customer_Id
 ";
         using (var conn = _dataSource.OpenConnection())
         { 

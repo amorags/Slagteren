@@ -28,6 +28,8 @@ app.UseCors(options =>
         .AllowCredentials();
 });
 
+// app.UseSecurityHeaders(); (remove above)
+
 app.MapControllers();
 
 app.Run();
