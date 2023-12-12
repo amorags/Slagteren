@@ -43,7 +43,7 @@ public class ProductController : ControllerBase
         HttpContext.Response.StatusCode = StatusCodes.Status201Created;
         return new ResponseDto()
         {
-            MessageToClient = "Successfully created a event",
+            MessageToClient = "Successfully created a product",
             ResponseData = _productService.CreateProduct(dto.ProductNumber, dto.ProductName, dto.PricePrKilo,
                 dto.ProductType, dto.CountryOfBirth, dto.ProductionCountry, dto.Description, dto.ImgUrl, dto.MinExpDate)
         };

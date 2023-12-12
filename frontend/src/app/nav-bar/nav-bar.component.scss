@@ -1,27 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 ion-header {
-  height: 80px;
+  min-height: 90px;
   display: flex;
-  box-shadow: 0 0 0 1px;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
 }
 ion-title {
   font-family: "Montserrat", sans-serif;
   font-size: 33px;
 }
-.C {
+ion-icon {
   display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
   align-items: center;
+  padding: 10px;
 }
-.icon {
-  width: fit-content;
-  padding-right: 20px;
+
+ion-toolbar {
   align-items: center;
+
 }
 .logo {
-  display: flex;
-  padding-left: 20px;
-  align-items: center;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .search {
  width: 500px;

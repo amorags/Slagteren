@@ -30,7 +30,7 @@
       <h1 class="category__heading alt smaller">Webshop</h1>
       <ion-grid>
         <ion-row>
-          <ion-card *ngFor="let product of state.products">
+          <ion-card style="flex: 1 1 25%" *ngFor="let product of state.products">
             <img alt="{{ product.product_name }}" [src]="product.product_img" />
             <ion-card-header>
               <ion-card-title>{{ product.product_name }}</ion-card-title>

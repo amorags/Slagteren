@@ -1,6 +1,6 @@
-﻿namespace infrastructure.DataModels;
+﻿namespace infrastructure.QueryModels;
 
-public class Customer
+public class CustomerFeedQuery
 {
     public int CustomerId { get; set; }
     public string FirstName { get; set; }

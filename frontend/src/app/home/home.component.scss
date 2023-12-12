@@ -7,6 +7,7 @@
   height: 255px;
   background: url("https://as2.ftcdn.net/v2/jpg/01/68/47/35/1000_F_168473569_HgQrDQf3bkvOHyl5wfwe8frlsAfUfagn.jpg") no-repeat center center;
   background-size: cover;
+  min-width: 900px;
 }
 .hero__text-container {
   position: relative;
@@ -83,6 +84,7 @@ h1 {
 }
 ion-card {
   width: calc(100%/3 - 26px);
+  max-width: calc(100%/3 - 26px);
   margin-bottom: 26px;
   :hover {
     cursor: pointer;

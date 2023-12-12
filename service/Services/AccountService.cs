@@ -39,13 +39,13 @@ public class AccountService
         throw new InvalidCredentialException("Invalid credential!");
     }
 
-    public Customer Register(string firstName, string lastName, string email, string address, int zip, string city, string country, string phone, string password)
+    public Customer Register(string firstName, string lastName, string email, string address, int zip, string city, string country, int phone, string password)
     {
         var hashAlgorithm = PasswordHashAlgorithm.Create();
         var salt = hashAlgorithm.GenerateSalt();
         var hash = hashAlgorithm.HashPassword(password, salt);
         var customer = _customerRepository.CreateCustomer(firstName, lastName, email, address, zip, city, country, phone);
-        _passwordHashRepository.Create(customer.Customer_Id, hash, salt, hashAlgorithm.GetName());
+        _passwordHashRepository.Create(customer.CustomerId, hash, salt, hashAlgorithm.GetName());
         return customer;
     }
 }

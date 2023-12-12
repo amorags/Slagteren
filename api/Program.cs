@@ -10,7 +10,10 @@ builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString
 } );
 
 builder.Services.AddSingleton<ProductService>();
+builder.Services.AddSingleton<CustomerService>();
+
 builder.Services.AddSingleton<ProductRepository>();
+builder.Services.AddSingleton<CustomerRepository>();
 
 // Add services to the container.
 

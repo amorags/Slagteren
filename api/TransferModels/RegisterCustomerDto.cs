@@ -18,7 +18,7 @@ public class RegisterCustomerDto
     
     [Required] public required string Country { get; set; }
     
-    [Required] public required string Phone { get; set; }
+    [Required] public required int Phone { get; set; }
 
     [Required] [MinLength(8)] public required string Password { get; set; }
     
