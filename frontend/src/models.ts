@@ -1,16 +1,27 @@
 export class Product {
-  product_id?: number;
-  product_number?: number;
-  product_name?: string;
-  price_per_kilo?: number;
+  productId?: number;
+  productNumber?: number;
+  productName?: string;
+  pricePrKilo?: number;
+  productType?: string;
+  countryOfBirth?: string;
+  productionCountry?: string;
   description?: string;
-  product_type?: string;
-  product_img?: string;
-  country_of_birth?: string;
-  country_of_slaughter?: string;
-  Expiration_date?: number;
+  imgUrl?: string;
+  minExpDate?: Date;
 }
 
+export class Customer {
+  customerId?: number;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  address?: string;
+  zip?: number;
+  city?: string;
+  country?: string;
+  phone?: number;
+}
 export class ResponseDto<T> {
   responseData?: T;
   messageToClient?: string;

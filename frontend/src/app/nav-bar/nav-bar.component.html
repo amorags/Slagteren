@@ -1,17 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar class="logo">
-    <img src="./../assets/icon/din_slagter_logo.png" height="79" width="82" alt="din slagter logo">
-    <ion-title slot="secondary">Dig Slagter</ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
-    <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon size="large" name="cart-outline"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon size="large" name="key-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<div class="header mmenu__fixed">
+  <div class="wrapper">
+    <div class="header__logo">
+      <a routerLink="/home">
+        <img src="./../assets/icon/din_slagter_logo.png" height="80" alt="din slagter logo">
+      </a>
+    </div>
+    <div class="header__navigation">
+      <div >
+        <ul class="header__menu">
+          <li>
+            <a class="nav" routerLink="/webshop">Webshop</a>
+          </li>
+          <li>
+            <a class="nav" routerLink="/om-os">Om os</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header__icons">
+        <a routerLink="/log-in"><ion-icon size="large" name="lock-closed-outline"></ion-icon></a>
+        <a routerLink="/inbox"><ion-icon size="large" name="mail-outline"></ion-icon></a>
+        <a routerLink="/check-out"><ion-icon size="large" name="cart-outline"></ion-icon></a>
+      </div>
+    </div>
+  </div>
+</div>

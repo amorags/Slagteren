@@ -1,0 +1,26 @@
+ion-content {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure full viewport height */
+}
+h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  padding: 20px; /* Add some padding if needed */
+}
+
+.hero img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+}

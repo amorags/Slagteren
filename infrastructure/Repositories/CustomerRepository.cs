@@ -17,15 +17,15 @@ public class CustomerRepository
     public IEnumerable<CustomerFeedQuery> GetCustomerFeed()
     {
         string sql = $@"
-SELECT customer_Id as {{nameof(CustomerFeedQuery.CustomerId)}},
-        firstName as {{nameof(CustomerFeedQuery.FirstName)}},
-        lastName as {{nameof(CustomerFeedQuery.LastName)}},
-        email as {{nameof(CustomerFeedQuery.Email)}},
-        address as {{nameof(CustomerFeedQuery.Address)}},
-        zip as {{nameof(CustomerFeedQuery.Zip)}},
-        city as {{nameof(CustomerFeedQuery.City)}},
-        country as {{nameof(CustomerFeedQuery.Country)}},
-        phone as {{nameof(CustomerFeedQuery.Phone)}}
+SELECT customer_id as {nameof(CustomerFeedQuery.CustomerId)},
+        firstname as {nameof(CustomerFeedQuery.FirstName)},
+        lastname as {nameof(CustomerFeedQuery.LastName)},
+        email as {nameof(CustomerFeedQuery.Email)},
+        address as {nameof(CustomerFeedQuery.address)},
+        zip as {nameof(CustomerFeedQuery.Zip)},
+        city as {nameof(CustomerFeedQuery.City)},
+        country as {nameof(CustomerFeedQuery.Country)},
+        phone as {nameof(CustomerFeedQuery.Phone)}
         FROM dinslagter.customers
 ";
         

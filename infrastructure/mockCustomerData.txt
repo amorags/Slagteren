@@ -1,0 +1,13 @@
+INSERT INTO dinslagter.customers (customer_id, firstname, lastname, email, address, zip, city, country, phone)
+VALUES
+  (1, 'Mads', 'Andersen', 'mads.andersen@email.com', 'Hovedgade 123', 1234, 'Copenhagen', 'Denmark', 12345678),
+  (2, 'Lise', 'Nielsen', 'lise.nielsen@email.com', 'Bakken 45', 5678, 'Aarhus', 'Denmark', 87654321),
+  (3, 'Anders', 'Jensen', 'anders.jensen@email.com', 'Strandvej 78', 9101, 'Helsingor', 'Denmark', 23456789),
+  (4, 'Karen', 'Pedersen', 'karen.pedersen@email.com', 'Skovvej 56', 1122, 'Odense', 'Denmark', 98765432),
+  (5, 'Peter', 'Christensen', 'peter.christensen@email.com', 'Søndergade 90', 3344, 'Esbjerg', 'Denmark', 87654321),
+  (6, 'Sofie', 'Olsen', 'sofie.olsen@email.com', 'Havnegade 32', 5566, 'Aalborg', 'Denmark', 34567890),
+  (7, 'Jens', 'Mortensen', 'jens.mortensen@email.com', 'Lærkevej 87', 7788, 'Randers', 'Denmark', 12349876),
+  (8, 'Anne', 'Rasmussen', 'anne.rasmussen@email.com', 'Roskildevej 101', 9900, 'Roskilde', 'Denmark', 56789012),
+  (9, 'Michael', 'Hansen', 'michael.hansen@email.com', 'Østergade 44', 2233, 'Holstebro', 'Denmark', 98761234),
+  (10, 'Mette', 'Larsen', 'mette.larsen@email.com', 'Nørregade 73', 6677, 'Kolding', 'Denmark', 23456789);
+  ;
