@@ -11,4 +11,11 @@ public class User
     public string City { get; set; }
     public string Country { get; set; }
     public int Phone { get; set; }
+    public required Role Role { get; set; }
+}
+
+public enum Role
+{
+    Customer,
+    Admin
 }

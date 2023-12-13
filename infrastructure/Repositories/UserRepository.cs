@@ -26,6 +26,7 @@ SELECT user_id as {nameof(UserFeedQuery.UserId)},
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
         phone as {nameof(UserFeedQuery.Phone)}
+        role as {nameof(UserFeedQuery.Role)}
         FROM dinslagter.users
 ";
         
@@ -53,6 +54,7 @@ SELECT user_id as {nameof(UserFeedQuery.UserId)},
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
         phone as {nameof(UserFeedQuery.Phone)}
+        role as {nameof(UserFeedQuery.Role)}
         ";
             
         using (var conn = _dataSource.OpenConnection())
@@ -91,6 +93,7 @@ SELECT user_id as {nameof(UserFeedQuery.UserId)},
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
         phone as {nameof(UserFeedQuery.Phone)}
+        role as {nameof(UserFeedQuery.Role)}
         ";
             
         using (var conn = _dataSource.OpenConnection())
@@ -114,6 +117,7 @@ SELECT user_id as {nameof(UserFeedQuery.UserId)},
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
         phone as {nameof(UserFeedQuery.Phone)}
+        role as {nameof(UserFeedQuery.Role)}
         FROM dinslagter.users
         WHERE user_id = @userId 
         ";

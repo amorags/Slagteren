@@ -10,13 +10,13 @@ public class AccountService
 {
     private readonly ILogger<AccountService> _logger;
     private readonly PasswordHashRepository _passwordHashRepository;
-    private readonly UserRepository _customerRepository;
+    private readonly UserRepository _userRepository;
 
-    public AccountService(ILogger<AccountService> logger, UserRepository customerRepository,
+    public AccountService(ILogger<AccountService> logger, UserRepository userRepository,
         PasswordHashRepository passwordHashRepository)
     {
         _logger = logger;
-        _customerRepository = customerRepository;
+        _userRepository = userRepository;
         _passwordHashRepository = passwordHashRepository;
     }
     
@@ -29,7 +29,7 @@ public class AccountService
             var passwordHash = _passwordHashRepository.GetByEmail(email);
             var hashAlgorithm = PasswordHashAlgorithm.Create(passwordHash.Algorithm);
             var isValid = hashAlgorithm.VerifyHashedPassword(password, passwordHash.Hash, passwordHash.Salt);
-            if (isValid) return _customerRepository.GetById(passwordHash.Customer_Id);
+            if (isValid) return _userRepository.GetById(passwordHash.Customer_Id);
         }
         catch (Exception e)
         {
@@ -44,8 +44,13 @@ public class AccountService
         var hashAlgorithm = PasswordHashAlgorithm.Create();
         var salt = hashAlgorithm.GenerateSalt();
         var hash = hashAlgorithm.HashPassword(password, salt);
-        var customer = _customerRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
-        _passwordHashRepository.Create(customer.UserId, hash, salt, hashAlgorithm.GetName());
-        return customer;
+        var user = _userRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
+        _passwordHashRepository.Create(user.UserId, hash, salt, hashAlgorithm.GetName());
+        return user;
+    }
+    
+    public User? Get(SessionData data)
+    {
+        return _userRepository.GetById(data.UserId);
     }
 }

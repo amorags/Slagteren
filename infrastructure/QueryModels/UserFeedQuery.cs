@@ -1,4 +1,6 @@
-﻿namespace infrastructure.QueryModels;
+﻿using infrastructure.DataModels;
+
+namespace infrastructure.QueryModels;
 
 public class UserFeedQuery
 {
@@ -11,4 +13,6 @@ public class UserFeedQuery
     public string City { get; set; }
     public string Country { get; set; }
     public int Phone { get; set; }
+
+    public Role Role { get; set; }
 }
