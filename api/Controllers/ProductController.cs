@@ -43,7 +43,7 @@ public class ProductController : ControllerBase
         HttpContext.Response.StatusCode = StatusCodes.Status201Created;
         return new ResponseDto()
         {
-            MessageToClient = "Successfully created a product",
+            MessageToClient = "Successfully created the product",
             ResponseData = _productService.CreateProduct(dto.ProductNumber, dto.ProductName, dto.PricePrKilo,
                 dto.ProductType, dto.CountryOfBirth, dto.ProductionCountry, dto.Description, dto.ImgUrl, dto.MinExpDate)
         };
@@ -57,7 +57,7 @@ public class ProductController : ControllerBase
         HttpContext.Response.StatusCode = 201;
         return new ResponseDto()
         {
-            MessageToClient = "Successfully Update a product",
+            MessageToClient = "Successfully Update the product",
             ResponseData = _productService.UpdateProduct(dto.ProductId, dto.ProductNumber, dto.ProductName, dto.PricePrKilo,
                 dto.ProductType, dto.CountryOfBirth, dto.ProductionCountry, dto.Description, dto.ImgUrl, dto.MinExpDate)
         };

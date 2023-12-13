@@ -41,4 +41,28 @@ public class UserController: ControllerBase
                 dto.City, dto.Country, dto.Phone)
         };
     }
+
+    [HttpPut]
+    [ValidateModel]
+    [Route("/api/user/{userId}")]
+    public ResponseDto Put([FromRoute] int userId, [FromBody] UpdateUserRequestDto dto)
+    {
+        return new ResponseDto()
+        {
+            MessageToClient = "Successfully Update the User",
+            ResponseData = _userService.UpdateUser(dto.UserId, dto.FirstName, dto.LastName, dto.Email, dto.address,
+                dto.Zip, dto.City, dto.Country, dto.Phone)
+        };
+    }
+
+    [HttpDelete]
+    [Route("/api/user/{userId}")]
+    public ResponseDto Delete([FromRoute] int userId)
+    {
+        _userService.DeleteUser(userId);
+        return new ResponseDto()
+        {
+            MessageToClient = "Successfully deleted"
+        };
+    }
 }

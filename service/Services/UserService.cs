@@ -1,4 +1,5 @@
-﻿using infrastructure.DataModels;
+﻿using System.ComponentModel.DataAnnotations;
+using infrastructure.DataModels;
 using infrastructure.QueryModels;
 using infrastructure.Repositories;
 
@@ -13,37 +14,43 @@ public class UserService
         _userRepository = userRepository;
     }
     
+    //Get user for admin list
     
     public IEnumerable<UserFeedQuery> GetUserFeed()
     {
         return _userRepository.GetUserFeed();
     }
 
-    //Create Customer (Maybee validation is needed, check if email exists)
+    //Create user and validation Email
     
     public User CreateUser(string firstName, string lastName, string email, string address, int zip,
         string city, string country, int phone)
     {
+        var doesEmailExist = _userRepository.DoesUserWithEmailExist(email);
+        if (!doesEmailExist)
+        {
+            throw new ValidationException("a user with this email already exists " + email);
+        }
+        
         return _userRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
     }
     
-    // Update Customer
+    // Update user
     
     public User UpdateUser(int customerId, string firstName, string lastName, string email, string address, int zip,
-        string city, string country, string phone)
+        string city, string country, int phone)
     {
         return _userRepository.UpdateUser(customerId, firstName, lastName, email, address, zip, city, country, phone);
     }
     
+    // Delete user
     
-    // Delete Customer
-    
-    public void DeleteUser(int customerId)
+    public void DeleteUser(int userId)
     {
-        var result = _userRepository.DeleteUser(customerId);
+        var result = _userRepository.DeleteUser(userId);
         if (!result)
         {
-            throw new Exception("Unable to delete the Customer");
+            throw new Exception("Unable to delete the user");
         }
     }
 

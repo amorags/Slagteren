@@ -21,7 +21,7 @@ SELECT product_id as {nameof(ProductFeedQuery.ProductId)},
         product_number as {nameof(ProductFeedQuery.ProductNumber)},
         product_name as {nameof(ProductFeedQuery.ProductName)},
         price_pr_kilo as {nameof(ProductFeedQuery.PricePrKilo)},
-        product_type as {nameof(ProductFeedQuery.ProductType)},
+        type_id as {nameof(ProductFeedQuery.ProductType)},
         country_of_birth as {nameof(ProductFeedQuery.CountryOfBirth)},
         production_country as {nameof(ProductFeedQuery.ProductionCountry)},
         description as {nameof(ProductFeedQuery.Description)},
@@ -39,13 +39,13 @@ SELECT product_id as {nameof(ProductFeedQuery.ProductId)},
         string countryOfBirth, string productionCountry, string description, string imgUrl, DateTime minExpDate)
     {
         string sql = $@"
-INSERT INTO dinslagter.products (product_number, product_name, price_pr_kilo, product_type, country_of_birth, production_country, description, img_url, min_exp_date)
+INSERT INTO dinslagter.products (product_number, product_name, price_pr_kilo, type_id, country_of_birth, production_country, description, img_url, min_exp_date)
 VALUES (@productNumber, @productName, @pricePrKilo, @productType, @countryOfBirth, @productionCountry, @description, @imgUrl, @minExpDate)
 RETURNING product_id as {nameof(ProductFeedQuery.ProductId)},
         product_number as {nameof(ProductFeedQuery.ProductNumber)},
         product_name as {nameof(ProductFeedQuery.ProductName)},
         price_pr_kilo as {nameof(ProductFeedQuery.PricePrKilo)},
-        product_type as {nameof(ProductFeedQuery.ProductType)},
+        type_id as {nameof(ProductFeedQuery.ProductType)},
         country_of_birth as {nameof(ProductFeedQuery.CountryOfBirth)},
         production_country as {nameof(ProductFeedQuery.ProductionCountry)},
         description as {nameof(ProductFeedQuery.Description)},
@@ -71,7 +71,7 @@ RETURNING product_id as {nameof(ProductFeedQuery.ProductId)},
         product_number as {nameof(ProductFeedQuery.ProductNumber)},
         product_name as {nameof(ProductFeedQuery.ProductName)},
         price_pr_kilo as {nameof(ProductFeedQuery.PricePrKilo)},
-        product_type as {nameof(ProductFeedQuery.ProductType)},
+        type_id as {nameof(ProductFeedQuery.ProductType)},
         country_of_birth as {nameof(ProductFeedQuery.CountryOfBirth)},
         production_country as {nameof(ProductFeedQuery.ProductionCountry)},
         description as {nameof(ProductFeedQuery.Description)},
