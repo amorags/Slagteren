@@ -18,7 +18,7 @@ export class ListUserComponent implements OnInit {
 
   async fetchCustomer()
   {
-    const result = await firstValueFrom(this.Http.get<ResponseDto<User[]>>(environment.baseUrl + '/api/customers'))
+    const result = await firstValueFrom(this.Http.get<ResponseDto<User[]>>(environment.baseUrl + '/api/users'))
     this.state.users = result.responseData!;
   }
 
