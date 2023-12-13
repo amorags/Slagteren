@@ -21,13 +21,6 @@
     </aside>
 
     <main class="main category__main">
-      <h1 class="category__heading alt smaller">Customer list</h1>
-      <ul>
-        <li *ngFor="let customer of state.customers">
-          <h3>{{customer.firstName}} {{customer.lastName}}</h3>
-          <p>{{customer.email}}</p>
-        </li>
-      </ul>
       <ion-list [inset]="true">
         <ion-item-sliding *ngFor="let customer of state.customers">
           <ion-item [button]="true">
@@ -35,6 +28,7 @@
               <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
             </ion-avatar>
             <ion-label>{{customer.firstName}} {{customer.lastName}}</ion-label>
+            <p>{{customer.email}}</p>
           </ion-item>
           <ion-item-options slot="end">
             <ion-item-option color="warning">

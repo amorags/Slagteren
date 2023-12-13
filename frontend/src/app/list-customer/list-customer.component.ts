@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {State} from "../../state";
-import {Product, ResponseDto} from "../../models";
+import {Customer, Product, ResponseDto} from "../../models";
 import {environment} from "../../environments/environment.prod";
 import {firstValueFrom} from "rxjs";
 
@@ -18,8 +18,8 @@ export class ListCustomerComponent  implements OnInit {
 
   async fetchCustomer()
   {
-    const result = await firstValueFrom(this.Http.get<ResponseDto<Product[]>>(environment.baseUrl + '/api/customers'))
-    this.state.products = result.responseData!;
+    const result = await firstValueFrom(this.Http.get<ResponseDto<Customer[]>>(environment.baseUrl + '/api/customers'))
+    this.state.customers = result.responseData!;
   }
 
   ngOnInit() {
