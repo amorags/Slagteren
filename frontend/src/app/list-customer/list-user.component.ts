@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {State} from "../../state";
-import {Customer, Product, ResponseDto} from "../../models";
+import {User, ResponseDto} from "../../models";
 import {environment} from "../../environments/environment.prod";
 import {firstValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-list-customer',
-  templateUrl: './list-customer.component.html',
-  styleUrls: ['./list-customer.component.scss'],
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.scss'],
 })
-export class ListCustomerComponent  implements OnInit {
+export class ListUserComponent implements OnInit {
 
   constructor(public Http: HttpClient, public state: State) {
 
@@ -18,13 +18,12 @@ export class ListCustomerComponent  implements OnInit {
 
   async fetchCustomer()
   {
-    const result = await firstValueFrom(this.Http.get<ResponseDto<Customer[]>>(environment.baseUrl + '/api/customers'))
-    this.state.customers = result.responseData!;
+    const result = await firstValueFrom(this.Http.get<ResponseDto<User[]>>(environment.baseUrl + '/api/customers'))
+    this.state.users = result.responseData!;
   }
 
   ngOnInit() {
     this.fetchCustomer()
   }
 
-  protected readonly State = State;
 }

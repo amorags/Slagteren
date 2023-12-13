@@ -11,8 +11,8 @@ export class Product {
   minExpDate?: Date;
 }
 
-export class Customer {
-  customerId?: number;
+export class User {
+  userId?: number;
   firstName?: string;
   lastName?: string;
   email?: string;

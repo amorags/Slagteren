@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {IonicModule} from "@ionic/angular";
 import {HttpClientModule} from "@angular/common/http";
-import {ListCustomerComponent} from "./list-customer/list-customer.component";
+import {ListUserComponent} from "./list-customer/list-user.component";
 import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'list-customer', component: ListCustomerComponent
+    path: 'list-customer', component: ListUserComponent
   },
   {
     path: 'login', component: LoginComponent

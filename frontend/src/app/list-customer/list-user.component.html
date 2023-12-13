@@ -3,7 +3,7 @@
     <div class="hero__text-container">
       <div class="hero__text">
         <div class="hero__pre-heading">Slagterens</div>
-        <div class="hero__heading">Customer</div>
+        <div class="hero__heading">Customer List</div>
       </div>
     </div>
   </section>
@@ -22,13 +22,13 @@
 
     <main class="main category__main">
       <ion-list [inset]="true">
-        <ion-item-sliding *ngFor="let customer of state.customers">
+        <ion-item-sliding *ngFor="let user of state.users">
           <ion-item [button]="true">
             <ion-avatar aria-hidden="true" slot="start">
               <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
             </ion-avatar>
-            <ion-label>{{customer.firstName}} {{customer.lastName}}</ion-label>
-            <p>{{customer.email}}</p>
+            <ion-label>{{user.firstName}} {{user.lastName}}</ion-label>
+            <p>{{user.email}}</p>
           </ion-item>
           <ion-item-options slot="end">
             <ion-item-option color="warning">
