@@ -5,46 +5,46 @@ using Npgsql;
 
 namespace infrastructure.Repositories;
 
-public class CustomerRepository
+public class UserRepository
 {
     private NpgsqlDataSource _dataSource;
 
-    public CustomerRepository(NpgsqlDataSource dataSource)
+    public UserRepository(NpgsqlDataSource dataSource)
     {
         _dataSource = dataSource;
     }
    
-    public IEnumerable<CustomerFeedQuery> GetCustomerFeed()
+    public IEnumerable<UserFeedQuery> GetUserFeed()
     {
         string sql = $@"
-SELECT customer_id as {nameof(CustomerFeedQuery.CustomerId)},
-        firstname as {nameof(CustomerFeedQuery.FirstName)},
-        lastname as {nameof(CustomerFeedQuery.LastName)},
-        email as {nameof(CustomerFeedQuery.Email)},
-        address as {nameof(CustomerFeedQuery.address)},
-        zip as {nameof(CustomerFeedQuery.Zip)},
-        city as {nameof(CustomerFeedQuery.City)},
-        country as {nameof(CustomerFeedQuery.Country)},
-        phone as {nameof(CustomerFeedQuery.Phone)}
-        FROM dinslagter.customers
+SELECT user_id as {nameof(UserFeedQuery.UserId)},
+        firstname as {nameof(UserFeedQuery.FirstName)},
+        lastname as {nameof(UserFeedQuery.LastName)},
+        email as {nameof(UserFeedQuery.Email)},
+        address as {nameof(UserFeedQuery.address)},
+        zip as {nameof(UserFeedQuery.Zip)},
+        city as {nameof(UserFeedQuery.City)},
+        country as {nameof(UserFeedQuery.Country)},
+        phone as {nameof(UserFeedQuery.Phone)}
+        FROM dinslagter.users
 ";
         
         using (var conn = _dataSource.OpenConnection())
         {
-            return conn.Query<CustomerFeedQuery>(sql);
+            return conn.Query<UserFeedQuery>(sql);
         }
     }
     
-    //Create Customer
+    //Create User
 
-    public Customer CreateCustomer(string firstName, string lastName, string email, string address, int zip,
+    public User CreateUser(string firstName, string lastName, string email, string address, int zip,
         string city, string country, int phone)
     {
         string sql = @"
-        INSERT INTO dinslagter.customers (firstName, lastName, email, address, zip, city, country, phone) 
+        INSERT INTO dinslagter.users (firstName, lastName, email, address, zip, city, country, phone) 
         VALUES (@firstName, @lastName, @email, @address, @zip, @city, @country, @phone)
         RETURNING
-        customer_Id as {nameof(customers.Customer_Id)},
+        user_id as {nameof(customers.Customer_Id)},
         firstName as {nameof(customers.FirstName)},
         lastName as {nameof(customers.LastName)},
         email as {nameof(customers.Email)},
@@ -57,32 +57,32 @@ SELECT customer_id as {nameof(CustomerFeedQuery.CustomerId)},
             
         using (var conn = _dataSource.OpenConnection())
         {
-            return conn.QueryFirst<Customer>(sql, new { firstName, lastName, email, address, zip, city, country, phone });
+            return conn.QueryFirst<User>(sql, new { firstName, lastName, email, address, zip, city, country, phone });
         }
     }
     
-    // Delete Customer
+    // Delete User
     
-    public bool DeleteCustomer(int customerId)
+    public bool DeleteUser(int customerId)
     {
-        var sql = @"DELETE FROM dinslagter.customers WHERE customerId = @customer_Id;";
+        var sql = @"DELETE FROM dinslagter.users WHERE  = @customer_Id;";
         using (var conn = _dataSource.OpenConnection())
         {
             return conn.Execute(sql, new { customerId }) == 1;
         }
     }
     
-    // Update Customer ??
+    // Update User ??
     
     
-    public Customer UpdateCustomer(int customer_id, string firstName, string lastName, string email, string address, int zip,
+    public User UpdateUser(int customer_id, string firstName, string lastName, string email, string address, int zip,
         string city, string country, string phone)
     {
         string sql = @"
-        UPDATE dinslagter.customers SET firstName = @firstName, lastName = @lastName, email = @email, address = @address, zip = @zip, city = @city, country = @country, phone = @phone
-        WHERE customer_id = @customer_id 
+        UPDATE dinslagter.users SET firstName = @firstName, lastName = @lastName, email = @email, address = @address, zip = @zip, city = @city, country = @country, phone = @phone
+        WHERE user_id = @customer_id 
         RETURNING
-        customer_Id as {nameof(customers.Customer_Id)},
+        user_id as {nameof(customers.Customer_Id)},
         firstName as {nameof(customers.FirstName)},
         lastName as {nameof(customers.LastName)},
         email as {nameof(customers.Email)},
@@ -95,17 +95,17 @@ SELECT customer_id as {nameof(CustomerFeedQuery.CustomerId)},
             
         using (var conn = _dataSource.OpenConnection())
         {
-            return conn.QueryFirst<Customer>(sql, new { customer_id, firstName, lastName, email, address, zip, city, country, phone });
+            return conn.QueryFirst<User>(sql, new { customer_id, firstName, lastName, email, address, zip, city, country, phone });
         }
     }
     
-    // Get Customer by ID
+    // Get User by ID
 
-    public Customer? GetById(int id)
+    public User? GetById(int id)
     {
         string sql = @"
         SELECT
-        customer_id as {nameof(customers.Customer_Id)},
+        user_id as {nameof(customers.Customer_Id)},
         firstName as {nameof(customers.FirstName)},
         lastName as {nameof(customers.LastName)},
         email as {nameof(customers.Email)},
@@ -120,13 +120,13 @@ SELECT customer_id as {nameof(CustomerFeedQuery.CustomerId)},
             
         using (var conn = _dataSource.OpenConnection())
         {
-            return conn.QueryFirst<Customer>(sql, new { id });
+            return conn.QueryFirst<User>(sql, new { id });
         } 
     }
 
-    public bool DoesCustomerWithEmailExist(string email)
+    public bool DoesUserWithEmailExist(string email)
     {
-        var sql = $@"SELECT COUNT(*) FROM dinslagter.customers WHERE Email = @email;";
+        var sql = $@"SELECT COUNT(*) FROM dinslagter.users WHERE Email = @email;";
         using (var conn = _dataSource.OpenConnection())
         {
             return conn.ExecuteScalar<int>(sql, new { email = email}) == 1;

@@ -10,9 +10,9 @@ public class AccountService
 {
     private readonly ILogger<AccountService> _logger;
     private readonly PasswordHashRepository _passwordHashRepository;
-    private readonly CustomerRepository _customerRepository;
+    private readonly UserRepository _customerRepository;
 
-    public AccountService(ILogger<AccountService> logger, CustomerRepository customerRepository,
+    public AccountService(ILogger<AccountService> logger, UserRepository customerRepository,
         PasswordHashRepository passwordHashRepository)
     {
         _logger = logger;
@@ -22,7 +22,7 @@ public class AccountService
     
     // Authenticate Customer.
 
-    public Customer? Authenticate(string email, string password)
+    public User? Authenticate(string email, string password)
     {
         try
         {
@@ -39,13 +39,13 @@ public class AccountService
         throw new InvalidCredentialException("Invalid credential!");
     }
 
-    public Customer Register(string firstName, string lastName, string email, string address, int zip, string city, string country, int phone, string password)
+    public User Register(string firstName, string lastName, string email, string address, int zip, string city, string country, int phone, string password)
     {
         var hashAlgorithm = PasswordHashAlgorithm.Create();
         var salt = hashAlgorithm.GenerateSalt();
         var hash = hashAlgorithm.HashPassword(password, salt);
-        var customer = _customerRepository.CreateCustomer(firstName, lastName, email, address, zip, city, country, phone);
-        _passwordHashRepository.Create(customer.CustomerId, hash, salt, hashAlgorithm.GetName());
+        var customer = _customerRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
+        _passwordHashRepository.Create(customer.UserId, hash, salt, hashAlgorithm.GetName());
         return customer;
     }
 }

@@ -6,7 +6,7 @@ using service;
 namespace api.Controllers;
 
 [ValidateModel]
-public class AccountController : ControllerBase
+public class  AccountController : ControllerBase
 {
     private readonly AccountService _service;
 
@@ -28,7 +28,7 @@ public class AccountController : ControllerBase
 
     [HttpPost]
     [Route("/api/account/register")]
-    public ResponseDto Register([FromBody] RegisterCustomerDto dto)
+    public ResponseDto Register([FromBody] RegisterUserDto dto)
     {
         var customer = _service.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
         return new ResponseDto

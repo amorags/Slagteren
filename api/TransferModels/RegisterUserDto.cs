@@ -2,7 +2,7 @@
 
 namespace api.TransferModels;
 
-public class RegisterCustomerDto
+public class RegisterUserDto
 {
     [Required] public required string FirstName { get; set; }
 
