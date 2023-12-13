@@ -5,6 +5,8 @@ import {IonicModule} from "@ionic/angular";
 import {HttpClientModule} from "@angular/common/http";
 import {ListCustomerComponent} from "./list-customer/list-customer.component";
 import {ErrorComponent} from "./error/error.component";
+import {LoginComponent} from "./login/login.component";
+import {SignupComponent} from "./signup/signup.component";
 
 const routes: Routes = [
   {
@@ -14,6 +16,10 @@ const routes: Routes = [
     path: 'list-customer', component: ListCustomerComponent
   },
   {
+    path: 'login', component: LoginComponent
+  },
+  {path: 'signup', component: SignupComponent},
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -21,6 +27,7 @@ const routes: Routes = [
   {
     path: '**', component: ErrorComponent
   }
+
 ];
 
 @NgModule({
