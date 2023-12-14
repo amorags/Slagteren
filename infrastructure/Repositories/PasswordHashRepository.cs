@@ -44,12 +44,12 @@ public class PasswordHashRepository
     {
         const string sql = $@"
     SELECT
-        customer_id as {nameof(PasswordHash.Customer_Id)},
+        user_id as {nameof(PasswordHash.User_Id)},
         hash as {nameof(PasswordHash.Hash)},
         salt as {nameof(PasswordHash.Salt)},
         algorithm as {nameof(PasswordHash.Algorithm)}
     FROM password_hash
-    JOIN customers ON password_hash.customer_id = customer_id
+    JOIN users ON password_hash.user_id = user_id
     WHERE email = @email;
 ";
         using (var conn = _dataSource.OpenConnection())
@@ -67,7 +67,7 @@ public class PasswordHashRepository
         const string sql = $@"
 UPDATE password_hash
 SET hash = @hash, salt = @salt, algorithm = @algorithm
-WHERE customer_id = @customer_Id
+WHERE user_id = @user_Id
 ";
         using (var conn = _dataSource.OpenConnection())
         { 

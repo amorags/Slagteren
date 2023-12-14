@@ -82,7 +82,7 @@ public class UserController: ControllerBase
             throw new Exception("Login failed, user could not be authenticated");
         }
 
-        var token = _tokenRepository.createToken(userToBeAutheticatedd);
+        var token = JwtService.createToken(userToBeAutheticatedd);
 
         return Ok(token);
     }
