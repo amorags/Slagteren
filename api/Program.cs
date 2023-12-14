@@ -20,6 +20,9 @@ builder.Services.AddSingleton<UserRepository>();
 builder.Services.AddSingleton<PasswordHashRepository>();
 builder.Services.AddSingleton<AccountService>();
 
+builder.Services.AddSingleton<TokenRepository>();
+builder.Services.AddSingleton<JwtService>();
+
 
 builder.Services.AddSingleton<ProductRepository>();
 
