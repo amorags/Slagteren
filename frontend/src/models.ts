@@ -23,10 +23,12 @@ export class User {
   phone?: number;
 }
 
+
 export class ProductType {
   typeId?: number;
   typeName?: string;
 }
+
 export class ResponseDto<T> {
   responseData?: T;
   messageToClient?: string;

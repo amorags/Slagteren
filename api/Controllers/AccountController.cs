@@ -5,7 +5,7 @@ using service;
 
 namespace api.Controllers;
 
-[ValidateModel]
+[ApiController]
 public class  AccountController : ControllerBase
 {
     private readonly AccountService _service;

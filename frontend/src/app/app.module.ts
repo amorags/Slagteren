@@ -14,11 +14,14 @@ import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {AddProductComponent} from "./add-product/add-product.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 
+
   declarations: [AppComponent, NavBarComponent, HomeComponent, ListUserComponent, ErrorComponent, LoginComponent, SignupComponent, AddProductComponent],
-  imports: [BrowserModule, IonicModule.forRoot({mode: "ios"}), AppRoutingModule, FormsModule, ReactiveFormsModule],
+
+  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot({mode: "ios"}), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

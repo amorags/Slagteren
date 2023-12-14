@@ -5,52 +5,53 @@
       <ion-icon name="arrow-back-outline" size="large" [routerLink]="['/login']"></ion-icon>
       <ion-card-title>Sign up</ion-card-title>
       <div class="grid">
-          <ion-item>
-            <ion-label position="floating">First Name</ion-label>
-            <ion-input placeholder="Enter your First Name"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input [formControl]="createNewUser.controls.firstName" placeholder="Enter your First Name"></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Last Name</ion-label>
-            <ion-input placeholder="Enter your Last Name"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input [formControl]="createNewUser.controls.lastName" placeholder="Enter your Last Name"></ion-input>
+        </ion-item>
 
-          <ion-item class="grid-col-span-2">
-            <ion-label position="floating">Email <ion-text color="danger">(Required)</ion-text></ion-label>
-            <ion-input type="email" errorText="Invalid email" placeholder="Enter your Email"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email <ion-text color="danger">(Required)</ion-text></ion-label>
+          <ion-input [formControl]="createNewUser.controls.email" type="email" errorText="Invalid email" placeholder="Enter your Email"></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Address</ion-label>
-            <ion-input type="address" placeholder="Enter your Address 1"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Address</ion-label>
+          <ion-input [formControl]="createNewUser.controls.address" type="address" placeholder="Enter your Address 1"></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Zip</ion-label>
-            <ion-input type="address" placeholder="Enter your Zip"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Zip</ion-label>
+          <ion-input [formControl]="createNewUser.controls.zip" type="address" placeholder="Enter your Zip"></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">City</ion-label>
-            <ion-input type="address" placeholder="Enter your Zip"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">City</ion-label>
+          <ion-input [formControl]="createNewUser.controls.city" type="address" placeholder="Enter your Zip"></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Country</ion-label>
-            <ion-input type="address" placeholder="Enter your Zip"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Country</ion-label>
+          <ion-input [formControl]="createNewUser.controls.country" type="address" placeholder="Enter your Zip"></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Phone</ion-label>
-            <ion-input type="tel" placeholder="Enter your Zip"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Phone</ion-label>
+          <ion-input [formControl]="createNewUser.controls.phone" type="address" placeholder="Enter your Zip"></ion-input>
+        </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Password <ion-text color="danger">(Required)</ion-text></ion-label>
-            <ion-input type="password" placeholder="Enter your password"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password <ion-text color="danger">(Required)</ion-text></ion-label>
+          <ion-input [formControl]="createNewUser.controls.password" type="password" placeholder="Enter your password"></ion-input>
+        </ion-item>
 
-          <ion-button class="grid-col-span-2" shape="round">Sign up</ion-button>
+        <ion-button (click)="submit()" shape="round">Sign up</ion-button>
+
         </div>
       </ion-card-content>
       <ion-label class="ion-text-center">
