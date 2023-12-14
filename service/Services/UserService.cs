@@ -2,6 +2,7 @@
 using infrastructure.DataModels;
 using infrastructure.QueryModels;
 using infrastructure.Repositories;
+using service.Password;
 
 namespace service.Services;
 
@@ -52,6 +53,23 @@ public class UserService
         {
             throw new Exception("Unable to delete the user");
         }
+    }
+    
+    public User login(UserLogin userToBeLoggedIn)
+    {
+        try
+        {
+            var userToCheck = _userRepository.login(userToBeLoggedIn);
+            if ((Argon2idPasswordHashAlgorithm.Verify(userToBeLoggedIn.Password, userToCheck.password);
+            {
+                return userToCheck;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("An error occurred during login" + e.Message);
+        }
+        return null;
     }
 
     
