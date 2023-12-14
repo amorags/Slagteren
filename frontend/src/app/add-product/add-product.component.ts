@@ -38,7 +38,7 @@ export class AddProductComponent {
       this.state.products.push(response.responseData!);
 
       const toast = await this.toastController.create({
-        message: 'produktet er blevet succesfuldt tilført',
+        message: 'Produktet er blevet succesfuldt tilført',
         duration: 1233,
         color: "success"
       })
