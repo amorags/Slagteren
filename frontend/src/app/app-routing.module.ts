@@ -7,7 +7,7 @@ import {ListUserComponent} from "./list-customer/list-user.component";
 import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
-import {CreateComponent} from "./create/create.component";
+import {AddProductComponent} from "./add-product/add-product.component";
 
 const routes: Routes = [
   {
@@ -19,8 +19,12 @@ const routes: Routes = [
   {
     path: 'login', component: LoginComponent
   },
-  {path: 'signup', component: SignupComponent},
-  {path: 'create', component: CreateComponent},
+  {
+    path: 'signup', component: SignupComponent
+  },
+  {
+    path: 'add-product', component: AddProductComponent
+  },
   {
     path: '',
     redirectTo: 'home',

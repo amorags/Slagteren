@@ -1,15 +1,4 @@
-ion-header {
-  --ion-background-color: transparent;
-  min-height: 90px;
-  position: relative;
-  align-items: center;
-}
-
-ion-img {
-  margin-left: 2%;
-  margin-right: 2%;
-  min-width: 300px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mr+Dafoe&family=Oswald:wght@700&display=swap');
 
 ion-content {
   display: flex;
@@ -18,7 +7,15 @@ ion-content {
   height: 100vh;
   --background: white;
 }
-
+.hero {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  height: 100%;
+  background: url("https://img.freepik.com/premium-photo/raw-meat-background-pieces-raw-steak-with-spices-herbs-rustic-table_220925-3448.jpg?w=1800") no-repeat center center;
+  background-size: cover;
+  min-width: 900px;
+}
 ion-card {
   display: block;
   width: 40%;
@@ -30,6 +27,13 @@ ion-card {
   border-radius: 10px;
   padding: 20px;
 }
+
+ion-card-title {
+  font-size: 33px;
+  font-weight: 700;
+  font-family: "Montserrat",sans-serif;
+}
+
 ion-button {
   --background: #1b1b1b;
   font-size: large;

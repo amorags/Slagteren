@@ -1,0 +1,61 @@
+<ion-content class="ion-no-padding">
+  <section class="hero">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>Tilført Produkt</ion-card-title>
+        <div class="grid">
+          <ion-item>
+            <ion-label position="floating">Produkt Navn</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.productName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Varenummer</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.productNumber" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Kilopris</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.pricePrKilo" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Oprindelse</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.countryOfBirth" ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Produceret I</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.productionCountry" ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Holdbarhed i dage </ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.minExpDate" type="number" placeholder="antal dage"></ion-input>
+          </ion-item>
+
+          <ion-item class="grid-col-span-2">
+            <ion-label position="floating">Beskrivelse</ion-label>
+            <ion-textarea [formControl]="createNewProductForm.controls.description" ></ion-textarea>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Billede til webshop</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.imgUrl" type="url"></ion-input>
+          </ion-item>
+
+          <ion-list>
+            <ion-item>
+              <ion-select *ngFor="let productType of state.productTypes" [formControl]="createNewProductForm.controls.productType" interface="popover" placeholder="Produkt Type">
+                <ion-select-option value="{{productType.typeId}}">{{ productType.typeName }}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+
+          <ion-button class="grid-col-span-2" shape="round" [routerLink]="['/home']"> Opret </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>

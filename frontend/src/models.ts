@@ -8,7 +8,7 @@ export class Product {
   productionCountry?: string;
   description?: string;
   imgUrl?: string;
-  minExpDate?: Date;
+  minExpDate?: number;
 }
 
 export class User {
@@ -21,6 +21,11 @@ export class User {
   city?: string;
   country?: string;
   phone?: number;
+}
+
+export class ProductType {
+  typeId?: number;
+  typeName?: string;
 }
 export class ResponseDto<T> {
   responseData?: T;
