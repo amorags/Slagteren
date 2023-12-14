@@ -1,5 +1,7 @@
 ﻿using api.Filters;
 using api.TransferModels;
+using infrastructure.DataModels;
+using infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using service.Services;
 
@@ -11,11 +13,14 @@ public class UserController: ControllerBase
 {
     private readonly ILogger<UserController> _logger;
     private readonly UserService _userService;
+    private readonly TokenRepository _tokenRepository;
+    
 
-    public UserController(ILogger<UserController> logger, UserService userService)
+    public UserController(ILogger<UserController> logger, UserService userService, TokenRepository tokenRepository)
     {
         _logger = logger;
         _userService = userService;
+        _tokenRepository = tokenRepository;
     }
 
     [HttpGet]

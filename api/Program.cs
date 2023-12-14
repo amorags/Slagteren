@@ -1,6 +1,8 @@
+
 using infrastructure;
+using infrastructure.DataModels;
 using infrastructure.Repositories;
-using service;
+
 using service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,12 +15,14 @@ builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString
 builder.Services.AddSingleton<ProductService>();
 builder.Services.AddSingleton<UserService>();
 
+
 builder.Services.AddSingleton<UserRepository>();
 builder.Services.AddSingleton<PasswordHashRepository>();
 builder.Services.AddSingleton<AccountService>();
 
+
 builder.Services.AddSingleton<ProductRepository>();
-builder.Services.AddSingleton<UserRepository>();
+
 
 // Add services to the container.
 
@@ -54,7 +58,7 @@ app.UseCors(options =>
 
 });
 
-// app.UseSecurityHeaders(); (remove above)
+//app.UseSecurityHeaders(); (remove above)
 
 app.MapControllers();
 
