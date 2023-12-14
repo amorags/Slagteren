@@ -4,7 +4,7 @@ using infrastructure.Repositories;
 using Microsoft.Extensions.Logging;
 using service.Password;
 
-namespace service;
+namespace service.Services;
 
 public class AccountService
 {
@@ -20,7 +20,7 @@ public class AccountService
         _passwordHashRepository = passwordHashRepository;
     }
     
-    // Authenticate Customer.
+    // Authenticate User.
 
     public User? Authenticate(string email, string password)
     {
@@ -49,8 +49,5 @@ public class AccountService
         return user;
     }
     
-    public User? Get(SessionData data)
-    {
-        return _userRepository.GetById(data.UserId);
-    }
+
 }

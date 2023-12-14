@@ -1,5 +1,8 @@
+
 using infrastructure;
+using infrastructure.DataModels;
 using infrastructure.Repositories;
+
 using service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,9 @@ builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString
 
 builder.Services.AddSingleton<ProductService>();
 builder.Services.AddSingleton<UserService>();
+
+builder.Services.AddSingleton<JwtService>();
+builder.Services.AddSingleton<TokenRepository>();
 
 builder.Services.AddSingleton<ProductRepository>();
 builder.Services.AddSingleton<UserRepository>();
@@ -46,7 +52,7 @@ app.UseCors(options =>
         .AllowCredentials();
 });
 
-// app.UseSecurityHeaders(); (remove above)
+//app.UseSecurityHeaders(); (remove above)
 
 app.MapControllers();
 
