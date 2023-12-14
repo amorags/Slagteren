@@ -15,13 +15,13 @@
           </ion-item>
 
           <ion-item>
-            <ion-label position="floating">Kilopris</ion-label>
-            <ion-input [formControl]="createNewProductForm.controls.pricePrKilo" type="number"></ion-input>
+            <ion-label position="floating">Oprindelse</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.countryOfBirth" ></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label position="floating">Oprindelse</ion-label>
-            <ion-input [formControl]="createNewProductForm.controls.countryOfBirth" ></ion-input>
+            <ion-label position="floating">Kilopris</ion-label>
+            <ion-input [formControl]="createNewProductForm.controls.pricePrKilo" type="number"></ion-input>
           </ion-item>
 
           <ion-item>
@@ -46,14 +46,15 @@
 
           <ion-list>
             <ion-item>
-              <ion-select *ngFor="let productType of state.productTypes" [formControl]="createNewProductForm.controls.productType" interface="popover" placeholder="Produkt Type">
-                <ion-select-option value="{{productType.typeId}}">{{ productType.typeName }}</ion-select-option>
+              <ion-label position="floating">Produkt Type</ion-label>
+              <ion-select [formControl]="createNewProductForm.controls.productType" interface="popover">
+                <ion-select-option *ngFor="let productType of state.productTypes" value="{{productType.typeId}}">{{ productType.typeName }}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-list>
 
+          <ion-button class="grid-col-span-2" (click)="submit()" id="add-product" shape="round" > Opret Produktet </ion-button>
 
-          <ion-button class="grid-col-span-2" shape="round" [routerLink]="['/home']"> Opret </ion-button>
         </div>
       </ion-card-content>
     </ion-card>
