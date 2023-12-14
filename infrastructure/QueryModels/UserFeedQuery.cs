@@ -13,6 +13,5 @@ public class UserFeedQuery
     public string City { get; set; }
     public string Country { get; set; }
     public int Phone { get; set; }
-
-    public Role Role { get; set; }
+    public string Role { get; set; }
 }

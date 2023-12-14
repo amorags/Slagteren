@@ -17,7 +17,7 @@ public class UserRepository
     public IEnumerable<UserFeedQuery> GetUserFeed()
     {
         string sql = $@"
-SELECT user_id as {nameof(UserFeedQuery.UserId)},
+        SELECT user_id as {nameof(UserFeedQuery.UserId)},
         firstname as {nameof(UserFeedQuery.FirstName)},
         lastname as {nameof(UserFeedQuery.LastName)},
         email as {nameof(UserFeedQuery.Email)},
@@ -26,7 +26,7 @@ SELECT user_id as {nameof(UserFeedQuery.UserId)},
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
         phone as {nameof(UserFeedQuery.Phone)}
-        role as {nameof(UserFeedQuery.Role)}
+        Role as {nameof(UserFeedQuery.Role)}
         FROM dinslagter.users
 ";
         
@@ -54,12 +54,11 @@ SELECT user_id as {nameof(UserFeedQuery.UserId)},
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
         phone as {nameof(UserFeedQuery.Phone)}
-        role as {nameof(UserFeedQuery.Role)}
         ";
             
         using (var conn = _dataSource.OpenConnection())
         {
-            return conn.QueryFirst<User>(sql, new { firstName, lastName, email, address, zip, city, country, phone });
+            return conn.QueryFirst<User>(sql, new { firstName, lastName, email, address, zip, city, country, phone});
         }
     }
     
