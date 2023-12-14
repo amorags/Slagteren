@@ -5,6 +5,7 @@ using infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using service.Services;
 
+
 namespace api.Controllers;
 
 [ApiController]
@@ -69,5 +70,20 @@ public class UserController: ControllerBase
         {
             MessageToClient = "Successfully deleted"
         };
+    }
+
+    [HttpPost]
+    [Route("/login")]
+    public IActionResult login([FromBody] UserLogin userToBeLoggedIn)
+    {
+        User userToBeAutheticatedd = _userService.login(userToBeLoggedIn);
+        if (userToBeLoggedIn == null)
+        {
+            throw new Exception("Login failed, user could not be authenticated");
+        }
+
+        var token = _tokenRepository.createToken(userToBeAutheticatedd);
+
+        return Ok(token);
     }
 }

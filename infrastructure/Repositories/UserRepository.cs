@@ -135,5 +135,27 @@ public class UserRepository
             return conn.ExecuteScalar<int>(sql, new { email }) == 1;
         }
     }
-    
+
+    public User login(UserLogin userToBeLoggedIn)
+    {
+        string sql = @$"
+        SELECT
+        user_id as {nameof(UserFeedQuery.UserId)},
+        firstName as {nameof(UserFeedQuery.FirstName)},
+        lastName as {nameof(UserFeedQuery.LastName)},
+        email as {nameof(UserFeedQuery.Email)},
+        address as {nameof(UserFeedQuery.address)},
+        zip as {nameof(UserFeedQuery.Zip)},
+        city as {nameof(UserFeedQuery.City)},
+        country as {nameof(UserFeedQuery.Country)},
+        phone as {nameof(UserFeedQuery.Phone)}
+        role as {nameof(UserFeedQuery.Role)}
+        FROM dinslagter.users
+        WHERE email = @email";
+        using (var conn = _dataSource.OpenConnection())
+        {
+            return conn.QueryFirst<User>(sql, new { email = userToBeLoggedIn.Email });
+        } 
+    }
+
 }
