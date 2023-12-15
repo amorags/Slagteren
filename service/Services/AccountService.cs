@@ -29,7 +29,7 @@ public class AccountService
             var passwordHash = _passwordHashRepository.GetByEmail(email);
             var hashAlgorithm = PasswordHashAlgorithm.Create(passwordHash.Algorithm);
             var isValid = hashAlgorithm.VerifyHashedPassword(password, passwordHash.Hash, passwordHash.Salt);
-            if (isValid) return _userRepository.GetById(passwordHash.Customer_Id);
+            if (isValid) return _userRepository.GetById(passwordHash.User_Id);
         }
         catch (Exception e)
         {

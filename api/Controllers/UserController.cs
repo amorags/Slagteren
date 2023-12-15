@@ -35,7 +35,7 @@ public class UserController: ControllerBase
     }
 
     [HttpPost]
-    [ValidateModel]
+    //[ValidateModel]
     [Route("/api/user")]
     public ResponseDto Post([FromBody]CreateUserRequestDto dto)
     {

@@ -26,11 +26,11 @@ public class UserService
     public User CreateUser(string firstName, string lastName, string email, string address, int zip,
         string city, string country, int phone)
     {
-        var doesEmailExist = _userRepository.DoesUserWithEmailExist(email);
-        if (!doesEmailExist)
+       /* var doesEmailExist = _userRepository.DoesUserWithEmailExist(email);
+        if (doesEmailExist)
         {
             throw new ValidationException("a user with this email already exists " + email);
-        }
+        }*/
         
         return _userRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
     }

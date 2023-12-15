@@ -100,10 +100,10 @@ create table passwordhash
         constraint passwords_pk
             primary key,
     password_hash varchar(350)                                                             not null,
-    salt          varchar(100)                                                             not null,
+    salt          varchar(250)                                                             not null,
     algorithm     varchar(50)                                                              not null,
     user_id       bigint                                                                   not null
-        constraint passwords_customers_customer_id_fk
+        constraint passwords_users_user_id_fk
             references ??? ()
 );
 

@@ -45,15 +45,15 @@ public class UserRepository
         INSERT INTO dinslagter.users (firstName, lastName, email, address, zip, city, country, phone) 
         VALUES (@firstName, @lastName, @email, @address, @zip, @city, @country, @phone)
         RETURNING
-        user_id as {nameof(UserFeedQuery.UserId)},
-        firstName as {nameof(UserFeedQuery.FirstName)},
-        lastName as {nameof(UserFeedQuery.LastName)},
-        email as {nameof(UserFeedQuery.Email)},
-        address as {nameof(UserFeedQuery.address)},
-        zip as {nameof(UserFeedQuery.Zip)},
-        city as {nameof(UserFeedQuery.City)},
-        country as {nameof(UserFeedQuery.Country)},
-        phone as {nameof(UserFeedQuery.Phone)}
+        user_id as {nameof(User.UserId)},
+        firstName as {nameof(User.FirstName)},
+        lastName as {nameof(User.LastName)},
+        email as {nameof(User.Email)},
+        address as {nameof(User.address)},
+        zip as {nameof(User.Zip)},
+        city as {nameof(User.City)},
+        country as {nameof(User.Country)},
+        phone as {nameof(User.Phone)}
         ";
             
         using (var conn = _dataSource.OpenConnection())
@@ -83,16 +83,16 @@ public class UserRepository
         UPDATE dinslagter.users SET firstName = @firstName, lastName = @lastName, email = @email, address = @address, zip = @zip, city = @city, country = @country, phone = @phone
         WHERE user_id = @userId 
         RETURNING
-        user_id as {nameof(UserFeedQuery.UserId)},
-        firstName as {nameof(UserFeedQuery.FirstName)},
-        lastName as {nameof(UserFeedQuery.LastName)},
-        email as {nameof(UserFeedQuery.Email)},
-        address as {nameof(UserFeedQuery.address)},
-        zip as {nameof(UserFeedQuery.Zip)},
-        city as {nameof(UserFeedQuery.City)},
-        country as {nameof(UserFeedQuery.Country)},
-        phone as {nameof(UserFeedQuery.Phone)}
-        role as {nameof(UserFeedQuery.Role)}
+        user_id as {nameof(User.UserId)},
+        firstName as {nameof(User.FirstName)},
+        lastName as {nameof(User.LastName)},
+        email as {nameof(User.Email)},
+        address as {nameof(User.address)},
+        zip as {nameof(User.Zip)},
+        city as {nameof(User.City)},
+        country as {nameof(User.Country)},
+        phone as {nameof(User.Phone)}
+        role as {nameof(User.Role)}
         ";
             
         using (var conn = _dataSource.OpenConnection())
