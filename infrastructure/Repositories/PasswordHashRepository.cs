@@ -48,8 +48,8 @@ public class PasswordHashRepository
         hash as {nameof(PasswordHash.Hash)},
         salt as {nameof(PasswordHash.Salt)},
         algorithm as {nameof(PasswordHash.Algorithm)}
-    FROM password_hash
-    JOIN users ON password_hash.user_id = user_id
+    FROM dinslagter.password_hash
+    JOIN dinslagter.users ON dinslagter.password_hash.user_id = user_id
     WHERE email = @email;
 ";
         using (var conn = _dataSource.OpenConnection())
