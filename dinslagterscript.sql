@@ -94,17 +94,17 @@ create table shopping_cart
 alter table shopping_cart
     owner to uxrlxmed;
 
-create table passwordhash
+drop table dinslagter.passwordhash;
+
+create table dinslagter.passwordhash
 (
-    password_id   bigint default nextval('dinslagter.passwords_password_id_seq'::regclass) not null
-        constraint passwords_pk
-            primary key,
+    password_id   bigint PRIMARY KEY generated always as IDENTITY,
     password_hash varchar(350)                                                             not null,
     salt          varchar(250)                                                             not null,
     algorithm     varchar(50)                                                              not null,
-    user_id       bigint                                                                   not null
+    user_id       integer                                                                   not null
         constraint passwords_users_user_id_fk
-            references ??? ()
+            references dinslagter.users (user_id)
 );
 
 alter table passwordhash

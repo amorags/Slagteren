@@ -23,7 +23,7 @@ public class PasswordHashRepository
     public void Create(int user_id, string password_hash, string salt, string algorithm)
     {
         const string sql = $@"
-    INSERT INTO passwordhash (user_id, password_hash, salt, algorithm)
+    INSERT INTO dinslagter.passwordhash (user_id, password_hash, salt, algorithm)
     VALUES (@user_id, @password_hash, @salt, @algorithm)
     ";
         // Log or print the SQL query (for debugging purposes)
