@@ -20,15 +20,18 @@ public class PasswordHashRepository
     
     //Create
     
-    public void Create(int customer_id, string hash, string salt, string algorithm)
+    public void Create(int user_id, string password_hash, string salt, string algorithm)
     {
         const string sql = $@"
-    INSERT INTO password_hash (customer_id, hash, salt, algorithm)
-    VALUES (@userId, @hash, @salt, @algorithm)
-";
+    INSERT INTO passwordhash (user_id, password_hash, salt, algorithm)
+    VALUES (@user_id, @password_hash, @salt, @algorithm)
+    ";
+        // Log or print the SQL query (for debugging purposes)
+        Console.WriteLine($"Executing SQL Query: {sql}");
+        
         using (var conn = _dataSource.OpenConnection())
         { 
-            conn.Execute(sql, new { customer_id, hash, salt, algorithm });
+            conn.Execute(sql, new { user_id, password_hash, salt, algorithm });
         }
         
     }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using infrastructure.DataModels;
 
 namespace api.TransferModels;
 
@@ -21,5 +22,6 @@ public class RegisterUserDto
     [Required] public required int Phone { get; set; }
 
     [Required] [MinLength(8)] public required string Password { get; set; }
-    
+
+
 }
