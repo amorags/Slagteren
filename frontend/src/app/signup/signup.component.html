@@ -50,7 +50,7 @@
           <ion-input [formControl]="createNewUser.controls.password" type="password" placeholder="Enter your password"></ion-input>
         </ion-item>
 
-        <ion-button (click)="submit()" shape="round">Sign up</ion-button>
+        <ion-button [disabled]="createNewUser.invalid" (click)="submit()"  shape="round">Sign up</ion-button>
 
         </div>
       </ion-card-content>
