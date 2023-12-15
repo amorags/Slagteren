@@ -43,9 +43,9 @@ public class AccountService
     {
         var hashAlgorithm = PasswordHashAlgorithm.Create();
         var salt = hashAlgorithm.GenerateSalt();
-        var password_hash = hashAlgorithm.HashPassword(password, salt);
+        var passwordHash = hashAlgorithm.HashPassword(password, salt);
         var user = _userRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
-        _passwordHashRepository.Create(user.UserId, password_hash, salt, hashAlgorithm.GetName());
+        _passwordHashRepository.Create(user.UserId, passwordHash, salt, hashAlgorithm.GetName());
         return user;
     }
     

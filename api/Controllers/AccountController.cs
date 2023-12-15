@@ -20,7 +20,7 @@ public class  AccountController : ControllerBase
     [Route("/api/account/login")]
     public ResponseDto Login([FromBody] LoginDto dto)
     {
-        var customer = _service.Authenticate(dto.Email, dto.Password);
+        var User = _service.Authenticate(dto.Email, dto.Password);
         return new ResponseDto
         {
             MessageToClient = "Successfully authenticated"

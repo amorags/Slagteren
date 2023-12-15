@@ -48,8 +48,8 @@ public class PasswordHashRepository
         hash as {nameof(PasswordHash.Hash)},
         salt as {nameof(PasswordHash.Salt)},
         algorithm as {nameof(PasswordHash.Algorithm)}
-    FROM dinslagter.password_hash
-    JOIN dinslagter.users ON dinslagter.password_hash.user_id = user_id
+    FROM dinslagter.passwordhash
+    JOIN dinslagter.users ON dinslagter.passwordhash.user_id = user_id
     WHERE email = @email;
 ";
         using (var conn = _dataSource.OpenConnection())
@@ -65,7 +65,7 @@ public class PasswordHashRepository
     public void Update(int user_id, string hash, string salt, string algorithm)
     {
         const string sql = $@"
-UPDATE password_hash
+UPDATE passwordhash
 SET hash = @hash, salt = @salt, algorithm = @algorithm
 WHERE user_id = @user_Id
 ";
