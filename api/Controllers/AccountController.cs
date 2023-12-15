@@ -20,7 +20,7 @@ public class  AccountController : ControllerBase
     [Route("/api/account/login")]
     public ResponseDto Login([FromBody] LoginDto dto)
     {
-        var User = _service.Authenticate(dto.Email, dto.Password);
+        var user = _service.Authenticate(dto.Email, dto.Password);
         return new ResponseDto
         {
             MessageToClient = "Successfully authenticated"
@@ -31,7 +31,7 @@ public class  AccountController : ControllerBase
     [Route("/api/account/register")]
     public ResponseDto Register([FromBody] RegisterUserDto dto)
     {
-        var customer = _service.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
+        var user = _service.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
         return new ResponseDto
         {
             MessageToClient = "Successfully registered"

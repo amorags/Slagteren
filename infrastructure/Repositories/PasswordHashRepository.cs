@@ -39,20 +39,18 @@ public class PasswordHashRepository
     
     
     //Retrieve by email
-    
     public PasswordHash GetByEmail(string email)
     {
         const string sql = $@"
     SELECT
-        user_id as {nameof(PasswordHash.User_Id)},
-        hash as {nameof(PasswordHash.Hash)},
+        passwordhash.user_id as {nameof(PasswordHash.User_Id)},
+        password_hash as {nameof(PasswordHash.Hash)},
         salt as {nameof(PasswordHash.Salt)},
         algorithm as {nameof(PasswordHash.Algorithm)}
     FROM dinslagter.passwordhash
     JOIN dinslagter.users ON dinslagter.passwordhash.user_id = dinslagter.users.user_id
-    WHERE dinslagter.users.email = @email;"";
-    /*JOIN dinslagter.users ON dinslagter.passwordhash.user_id = user_id
-    WHERE email = @email;*/
+    WHERE dinslagter.users.email = @email;
+    
 ";
         using (var conn = _dataSource.OpenConnection())
         {
