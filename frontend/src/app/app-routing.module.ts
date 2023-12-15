@@ -8,6 +8,8 @@ import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {AddProductComponent} from "./add-product/add-product.component";
+import {CheckOutComponent} from "./check-out/check-out.component";
+import {ProductDetailComponent} from "./product-detail/product-detail.component";
 
 const routes: Routes = [
   {
@@ -24,6 +26,12 @@ const routes: Routes = [
   },
   {
     path: 'add-product', component: AddProductComponent
+  },
+  {
+    path: 'check-out', component: CheckOutComponent
+  },
+  {
+    path: 'product-detail', component: ProductDetailComponent
   },
   {
     path: '',

@@ -18,21 +18,22 @@ public class ProductService
         return _productRepository.GetProductFeed();
     }
 
-    public Product CreateProduct(int productNumber, string productName, int pricePrKilo, string productType, 
-        string countryOfBirth, string productionCountry, string description, string imgUrl, DateTime minExpDate)
+    public Product CreateProduct(int productNumber, string productName, double pricePrKilo, int productType, 
+        string countryOfBirth, string productionCountry, string description, string imgUrl, int minExpDate)
     {
+        /**
         var doesProductExist = _productRepository.DoesProductWithNameExist(productName);
         if (!doesProductExist)
         {
             throw new ValidationException("A product already exists with this name " + productName);
         }
-
+        **/
         return _productRepository.CreateProduct(productNumber, productName, pricePrKilo, productType, countryOfBirth,
             productionCountry, description, imgUrl, minExpDate);
     }
 
-    public Product UpdateProduct(int productId, int productNumber, string productName, int pricePrKilo, 
-        string productType, string countryOfBirth, string productionCountry, string description, string imgUrl, DateTime minExpDate)
+    public Product UpdateProduct(int productId, int productNumber, string productName, double pricePrKilo, 
+        int productType, string countryOfBirth, string productionCountry, string description, string imgUrl, int minExpDate)
     {
         return _productRepository.UpdateProduct(productId, productNumber, productName, pricePrKilo, productType, countryOfBirth,
             productionCountry, description, imgUrl, minExpDate);

@@ -35,8 +35,8 @@ SELECT product_id as {nameof(ProductFeedQuery.ProductId)},
         }
     }
 
-    public Product CreateProduct(int productNumber, string productName, int pricePrKilo, string productType,
-        string countryOfBirth, string productionCountry, string description, string imgUrl, DateTime minExpDate)
+    public Product CreateProduct(int productNumber, string productName, double pricePrKilo, int productType,
+        string countryOfBirth, string productionCountry, string description, string imgUrl, int minExpDate)
     {
         string sql = $@"
 INSERT INTO dinslagter.products (product_number, product_name, price_pr_kilo, type_id, country_of_birth, production_country, description, img_url, min_exp_date)
@@ -60,8 +60,8 @@ RETURNING product_id as {nameof(ProductFeedQuery.ProductId)},
         }
     }
 
-    public Product UpdateProduct(int productId, int productNumber, string productName, int pricePrKilo, string productType,
-        string countryOfBirth, string productionCountry, string description, string imgUrl, DateTime minExpDate)
+    public Product UpdateProduct(int productId, int productNumber, string productName, double pricePrKilo, int productType,
+        string countryOfBirth, string productionCountry, string description, string imgUrl, int minExpDate)
     {
         string sql = $@"
 UPDATE dinslagter.products SET product_name = @productName, price_pr_kilo = @pricePrKilo, country_of_birth = @countryOfBirth,

@@ -18,7 +18,7 @@ export class AddProductComponent {
     productNumber: [0, Validators.required],
     productName: ['',[Validators.minLength(4), Validators.required]],
     pricePrKilo: [0, Validators.required],
-    productType: ['', Validators.required],
+    productType: [0, Validators.required],
     countryOfBirth: ['', Validators.required],
     productionCountry: ['', Validators.required],
     description: ['',[Validators.maxLength(500), Validators.required]],
@@ -29,6 +29,15 @@ export class AddProductComponent {
   constructor(public fb: FormBuilder, public http: HttpClient,
               public state: State, public toastController: ToastController) {
   }
+
+  selectedProductTypeId: number = 0;
+
+  // Event handler for ionChange
+  onProductTypeChange(event: CustomEvent) {
+    const selectedValue = event.detail.value;
+    this.selectedProductTypeId = parseInt(selectedValue, 10);
+  }
+
 
   async submit() {
     try {

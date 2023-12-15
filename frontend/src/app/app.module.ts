@@ -15,11 +15,13 @@ import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {AddProductComponent} from "./add-product/add-product.component";
 import { HttpClientModule } from '@angular/common/http';
+import {CheckOutComponent} from "./check-out/check-out.component";
+import {ProductDetailComponent} from "./product-detail/product-detail.component";
 
 @NgModule({
 
 
-  declarations: [AppComponent, NavBarComponent, HomeComponent, ListUserComponent, ErrorComponent, LoginComponent, SignupComponent, AddProductComponent],
+  declarations: [AppComponent, NavBarComponent, HomeComponent, ListUserComponent, ErrorComponent, LoginComponent, SignupComponent, AddProductComponent, CheckOutComponent, ProductDetailComponent],
 
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot({mode: "ios"}), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
