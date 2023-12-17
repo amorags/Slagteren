@@ -3,59 +3,68 @@
     <ion-card>
       <ion-card-content>
       <ion-icon name="arrow-back-outline" size="large" [routerLink]="['/login']"></ion-icon>
-      <ion-card-title>Sign up</ion-card-title>
+      <ion-card-title>Opret Dig</ion-card-title>
       <div class="grid">
         <ion-item>
-          <ion-label position="floating">First Name</ion-label>
-          <ion-input [formControl]="createNewUser.controls.firstName" placeholder="Enter your First Name"></ion-input>
+          <ion-label position="floating">Fornavn</ion-label>
+          <ion-input [formControl]="createNewUser.controls.firstName" placeholder="Indtast fornavn"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Last Name</ion-label>
-          <ion-input [formControl]="createNewUser.controls.lastName" placeholder="Enter your Last Name"></ion-input>
+          <ion-label position="floating">Efternavn</ion-label>
+          <ion-input [formControl]="createNewUser.controls.lastName" placeholder="Indtast efternavn"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Email <ion-text color="danger">(Required)</ion-text></ion-label>
-          <ion-input [formControl]="createNewUser.controls.email" type="email" errorText="Invalid email" placeholder="Enter your Email"></ion-input>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [formControl]="createNewUser.controls.email" type="email" placeholder="Indtast din email"></ion-input>
+          <div *ngIf="createNewUser.controls.email.hasError('email') && (createNewUser.controls.email.dirty || createNewUser.controls.email.touched)">
+            <ion-text color="danger">email format er forkert</ion-text>
+          </div>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Address</ion-label>
-          <ion-input [formControl]="createNewUser.controls.address" type="address" placeholder="Enter your Address 1"></ion-input>
+          <ion-label position="floating">Adresse</ion-label>
+          <ion-input [formControl]="createNewUser.controls.address" placeholder="Indtast din adresse"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Zip</ion-label>
-          <ion-input [formControl]="createNewUser.controls.zip" type="address" placeholder="Enter your Zip"></ion-input>
+          <ion-label position="floating">Postnummer</ion-label>
+          <ion-input [formControl]="createNewUser.controls.zip" placeholder="Indtast postnummer"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">City</ion-label>
-          <ion-input [formControl]="createNewUser.controls.city" type="address" placeholder="Enter your Zip"></ion-input>
+          <ion-label position="floating">By</ion-label>
+          <ion-input [formControl]="createNewUser.controls.city" placeholder="Indtast By"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Country</ion-label>
-          <ion-input [formControl]="createNewUser.controls.country" type="address" placeholder="Enter your Zip"></ion-input>
+          <ion-label position="floating">Land</ion-label>
+          <ion-input [formControl]="createNewUser.controls.country" placeholder="Indtast Land"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Phone</ion-label>
-          <ion-input [formControl]="createNewUser.controls.phone" type="address" placeholder="Enter your Zip"></ion-input>
+          <ion-label position="floating">Telefon</ion-label>
+          <ion-input [formControl]="createNewUser.controls.phone" placeholder="Indtast dit telefon nr"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Password <ion-text color="danger">(Required)</ion-text></ion-label>
-          <ion-input [formControl]="createNewUser.controls.password" type="password" placeholder="Enter your password"></ion-input>
+          <ion-label position="floating">Adgangskode</ion-label>
+          <ion-input [formControl]="createNewUser.controls.password" type="password" placeholder="Indtast din adgangskode"></ion-input>
+          <div *ngIf="createNewUser.controls.password.hasError('minlength') && (createNewUser.controls.password.dirty || createNewUser.controls.password.touched)">
+            <ion-text color="danger">Adgangskoden skal være mindst 8 tegn lang</ion-text>
+          </div>
+          <div *ngIf="createNewUser.controls.password.hasError('passwordRequirements') && (createNewUser.controls.password.dirty || createNewUser.controls.password.touched)">
+            <ion-text color="danger">Adgangskoden skal indeholde mindst et stort bogstav, et lille bogstav, et tal og et specialtegn</ion-text>
+          </div>
         </ion-item>
 
-        <ion-button [disabled]="createNewUser.invalid" (click)="submit()"  shape="round">Sign up</ion-button>
+        <ion-button [disabled]="createNewUser.invalid" (click)="submit()"  shape="round">Opret Dig</ion-button>
 
         </div>
       </ion-card-content>
       <ion-label class="ion-text-center">
-        Need help? <a routerLink="#">Click here</a>
+        Brug for hjælp?<a routerLink="#">Klik her</a>
       </ion-label>
 
     </ion-card>

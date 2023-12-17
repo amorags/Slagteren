@@ -4,8 +4,21 @@ import {State} from "../../state";
 import {environment} from "../../environments/environment.prod";
 import {firstValueFrom} from "rxjs";
 import {User, ResponseDto} from '../../models'
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import {ToastController} from "@ionic/angular";
+import { Router } from '@angular/router';
+const passwordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const value: string = control.value;
+  const hasUpperCase = /[A-Z]/.test(value);
+  const hasLowerCase = /[a-z]/.test(value);
+  const hasNumber = /\d/.test(value);
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+
+  const isValid = hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar;
+
+  return isValid ? null : { passwordRequirements: true };
+};
+
 
 @Component({
   selector: 'app-signup',
@@ -16,19 +29,20 @@ export class SignupComponent  implements OnInit {
 
 
   createNewUser = this.fb.group({
-     firstName: ['', Validators.required],
+    firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     address: ['', Validators.required],
-    zip: [0, Validators.maxLength(4)],
+    zip: [, [Validators.maxLength(4), Validators.required]],
     city: ['', Validators.required],
     country: ['', Validators.required],
-    phone: [0, Validators.minLength(8)],
-    password: ['', Validators.minLength(8)]
-  })
+    phone: [, [Validators.minLength(8), Validators.required]],
+    password: ['', [Validators.minLength(8), Validators.required, passwordValidator]]
+  });
 
 
-  constructor(public Http: HttpClient, public state: State, public fb: FormBuilder, public toastController: ToastController) {
+
+  constructor(public Http: HttpClient, public state: State, public fb: FormBuilder, public toastController: ToastController, public router: Router) {
   }
 
   ngOnInit() {}
@@ -52,6 +66,11 @@ export class SignupComponent  implements OnInit {
         color: "success"
       })
       toast.present();
+
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 1000);
+
     } catch (e) {
       console.log(e);
       if (e instanceof HttpErrorResponse) {
