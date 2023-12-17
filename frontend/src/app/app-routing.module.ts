@@ -13,25 +13,31 @@ import {ProductDetailComponent} from "./product-detail/product-detail.component"
 
 const routes: Routes = [
   {
-    path: 'home', component: HomeComponent
+    path: 'home', component: HomeComponent,
+    title: 'Home Page'
+  },
+  {
+    path: 'details/:id', component: ProductDetailComponent,
+    title: 'Details'
   },
   {
     path: 'list-customer', component: ListUserComponent
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login', component: LoginComponent,
+    title: 'Log in'
   },
   {
-    path: 'signup', component: SignupComponent
+    path: 'signup', component: SignupComponent,
+    title: 'Sign up'
   },
   {
-    path: 'add-product', component: AddProductComponent
+    path: 'add-product', component: AddProductComponent,
+    title: 'Add product'
   },
   {
-    path: 'check-out', component: CheckOutComponent
-  },
-  {
-    path: 'product-detail', component: ProductDetailComponent
+    path: 'check-out', component: CheckOutComponent,
+    title: 'Check out'
   },
   {
     path: '',

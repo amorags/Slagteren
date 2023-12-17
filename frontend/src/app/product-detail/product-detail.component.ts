@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import {State} from "../../state";
+import { ActivatedRoute } from "@angular/router";
+import { ProductService } from "../product.service";
+import {Product} from "../../models";
 
 @Component({
   selector: 'app-product-detail',
@@ -6,43 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent  implements OnInit {
+  route: ActivatedRoute = inject(ActivatedRoute);
+  productService = inject(ProductService)
+  product: Product | undefined;
 
-  constructor() { }
-
-  /**
-(function() {
-    document.querySelector('#AddProductForm_Form_Quantity_Holder input').type = 'number';
-  })();
-
-  var validateNumber = function (input) {
-    if (parseInt(input.value) < parseInt(input.min)) {
-      input.value = input.min;
-    }
-  };
-
-  var incrementValueOfElement = function(elm){
-    elm.value++;
-    callEventChangeOnElement(elm);
-  };
-
-  var decrementValueOfElement = function(elm){
-    elm.value--;
-    callEventChangeOnElement(elm);
-  };
-
-  function callEventChangeOnElement(elm) {
-
-    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
-      var evt = document.createEvent('HTMLEvents');
-      evt.initEvent("ie11PriceUpdate", false, true);
-      document.dispatchEvent(evt);
-    } else {
-      var event = new Event('change');
-      elm.dispatchEvent(event);
-    }
-
+  constructor(public state: State) {
+    const productId = Number(this.route.snapshot.params['id']);
+    this.product = this.productService.GetProductById(productId);
   }
-**/
 
 
   ngOnInit() {}

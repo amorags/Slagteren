@@ -1,22 +1,22 @@
 <ion-content class="ion-no-padding">
   <section class="hero"></section>
 
-  <div class="wrapper">
+  <div class="wrapper" >
     <main class="main">
       <div class="grid">
         <div class="product__imagecontainer">
           <div class="product__image">
-            <img width="540" height="350" src="https://www.slagtertheilgaard.dk/assets/Uploads/69a53986f4/Oksefars-til-plakat__FocusFillWzU0MCwzNTAsInkiLDVd.jpg">
+            <img width="540" height="350" [src]="product?.imgUrl">
           </div>
         </div>
         <div class="product__content">
-          <h1 class="alt smaller">Culottesteg Angus m. rødvinsmarinade</h1>
+          <h1 class="alt smaller">{{product?.productName}}</h1>
           <div class="product__short-description">
-            <p>Culottesteg fra Anguskvæg..</p>
+            <p>{{ product?.description }}</p>
           </div>
           <div class="product__price">
             <div class="price" data-price="259.95">
-              <span class="value">259,95 DKK/per kg </span>
+              <span class="value">{{product?.pricePrKilo}} DKK/per kg </span>
             </div>
           </div>
           <div class="product__addtocart">
@@ -34,10 +34,10 @@
         <div class="product-information">
           <h3>Produkt information</h3>
           <div>
-            <p>Varenummer:</p>
-            <p>Opdragelses i:</p>
-            <p>Slagtet i:</p>
-            <p>Forventet holdbarhed:  dage</p>
+            <p>Varenummer: {{product?.productNumber}}</p>
+            <p>Opdragelses i: {{product?.countryOfBirth}}</p>
+            <p>Slagtet i: {{product?.productionCountry}}</p>
+            <p>Forventet holdbarhed: {{product?.minExpDate}} dage</p>
           </div>
         </div>
       </div>
