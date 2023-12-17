@@ -36,11 +36,15 @@
               <ion-card-title>{{ product.productName }}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <h3>{{ product.pricePrKilo }} kr. pr kg</h3>
               {{ product.description }}
-              <ion-input type="number" placeholder="kilo"></ion-input>
-              <ion-button>til cart</ion-button>
             </ion-card-content>
+              <div class="card-bottom">
+                <div class="price">
+                  <p>kr. pr kg</p>
+                  <ion-text>{{ product.pricePrKilo }} </ion-text>
+                </div>
+                <ion-button>Se mere  <ion-icon name="return-down-forward-outline"></ion-icon></ion-button>
+              </div>
           </ion-card>
         </ion-row>
       </ion-grid>

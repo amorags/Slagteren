@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mr+Dafoe&family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+ion-content {
+  --background: #f5f5f5;
+}
 
 .hero {
   display: flex;
@@ -15,17 +19,14 @@
   max-width: 100%;
   padding: 15px 15px;
 }
-.product__row {
-  display: flex;
-  justify-content: space-between;
-}
-.product__content {
-  flex: 1;
-}
-.product__imagecontainer {
-  display: block;
-  width: 50.87719%;
-  margin: 0 4.82456% 0 0;
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 50% 50%;
+
+  padding-block: 2rem;
+  width: min(95%, 70rem);
+  padding-bottom: 80px;
 }
 .product__image {
   position: relative;
@@ -46,30 +47,16 @@
   font-size: 30px;
   font-weight: 700;
 }
-h1.alt, .alt.footer__over-heading, .alt.employee__heading, .alt.product__cta-heading, .alt.modal__headline {
+h1 {
   font-weight: 700;
   font-family: "Montserrat",sans-serif;
   text-transform: none;
 }
-.product__content h1, .product__content .footer__over-heading, .product__content .employee__heading, .product__content .product__cta-heading, .product__content .modal__headline {
+h1 {
   margin-bottom: 20px;
-}
-
-h1.smaller, .smaller.footer__over-heading, .smaller.employee__heading, .smaller.product__cta-heading, .smaller.modal__headline {
   font-size: 33px;
 }
-.product__addtocart-form form {
-  display: flex;
-  align-items: center;
-}
-form, .form__fake {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: -5px 0;
-  width: 100%;
-}
+
 .product__short-description {
   font-size: 16px;
   line-height: 1.6;
@@ -78,4 +65,28 @@ form, .form__fake {
   color: #454545;
   -webkit-font-smoothing: antialiased;
   margin-bottom: 11px;
+}
+.product__addtocart {
+  display: flex;
+  align-content: center;
+  gap: 2rem;
+  height: fit-content;
+  width: 100%;
+}
+.kilo-input {
+  border-radius: 15px;
+  text-align: center;
+}
+.product-information {
+  background: #ffffff;
+  grid-column: span 2;
+  display: block;
+  border: 18px solid #fff;
+  box-shadow: -2px -2px 4px rgba(0,0,0,0.2), 0px 2px 4px rgba(0,0,0,0.15);
+  width: 100%;
+}
+h3 {
+  font-size: 20px;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 400;
 }

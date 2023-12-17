@@ -3,7 +3,7 @@
 
   <div class="wrapper">
     <main class="main">
-      <div class="product__row">
+      <div class="grid">
         <div class="product__imagecontainer">
           <div class="product__image">
             <img width="540" height="350" src="https://www.slagtertheilgaard.dk/assets/Uploads/69a53986f4/Oksefars-til-plakat__FocusFillWzU0MCwzNTAsInkiLDVd.jpg">
@@ -12,275 +12,35 @@
         <div class="product__content">
           <h1 class="alt smaller">Culottesteg Angus m. rødvinsmarinade</h1>
           <div class="product__short-description">
-            <p>Culottesteg fra Anguskvæg. Vi har i mange år solgt culottestege af Black Angus. det har vi af den simple årsag, at de culotterne er smagfulde og møre. Culottesteg i ovnen eller på grillen er perfekt til en aften, hvor det skal være både nemt, smagfuldt og mørt.</p><p>Denne er marineret med rødvin, som er en klassisk marinade til rødt kød.</p>
+            <p>Culottesteg fra Anguskvæg..</p>
           </div>
           <div class="product__price">
             <div class="price" data-price="259.95">
-              <span class="value">259,95 DKK </span>
-              <span class="currency"></span>
+              <span class="value">259,95 DKK/per kg </span>
             </div>
           </div>
-          <div class="product__addtocart-form">
-            <form id="AddProductForm_Form" action="/webshop/oksekod/culottesteg-angus-m-rodvinsmarinade/Form/" method="post" enctype="application/x-www-form-urlencoded" class="addproductform">
-              <p id="AddProductForm_Form_error" class="message " style="display: none"></p>
-              <input type="hidden" name="BuyTogether" value="0" class="hidden" id="BuyTogether">
-              <input type="hidden" name="SecurityID" value="0244511e968d4d29ebd69d9e77fbb0460611092b" class="hidden" id="AddProductForm_Form_SecurityID">
-              <div id="AddProductForm_Form_Quantity_Holder" class="field-spinner numeric text">
-                <input type="number" name="Quantity" value="1" class="numeric text" id="AddProductForm_Form_Quantity" required="required" aria-required="true" min="0" onchange="validateNumber(this);" autocomplete="off">
-                <div class="field-spinner__button-holder">
-                  <div onclick="incrementValueOfElement(this.parentNode.previousElementSibling)" class="field-spinner__button field-spinner__button--increment"></div>
-                  <div onclick="this.parentNode.previousElementSibling.value > 1 &amp;&amp; this.parentNode.previousElementSibling.value > this.parentNode.previousElementSibling.min ? decrementValueOfElement(this.parentNode.previousElementSibling) : null" class="field-spinner__button field-spinner__button--decrement"></div>
-                </div>
-              </div>
-
-              <div class="product__type-holder">
-
-                <div class="product__unit-type" data-unitamount="1300" data-unit="g">
-
-
-                  <div class="product__unit-type-text">stk</div>
-
-
-                  <div class="product__before-unit">(&nbsp;ca. </div>
-
-
-                  <div class="product__unit-amount">
-                    1300
-                  </div>
-                  <div class="product__unit">g</div>&nbsp;)
-
-                </div>
-
-              </div>
-
-              <button type="submit" name="action_addtocart" value="Læg i kurv" class="action" id="AddProductForm_Form_action_addtocart">
-                <span>Læg i kurv</span>
-              </button>
-            </form>
+          <div class="product__addtocart">
+            <input
+              type="number"
+              class="kilo-input"
+              value="1"
+              min="0"
+              max="100"
+            />
+            <p class="product__short-description">kg</p>
+            <ion-button>Læg i kurv <ion-icon name="cart-outline"></ion-icon></ion-button>
           </div>
-
+        </div>
+        <div class="product-information">
+          <h3>Produkt information</h3>
+          <div>
+            <p>Varenummer:</p>
+            <p>Opdragelses i:</p>
+            <p>Slagtet i:</p>
+            <p>Forventet holdbarhed:  dage</p>
+          </div>
         </div>
       </div>
     </main>
-
-
-    <div class="product__tabs">
-
-      <div class="product__buytogether">
-
-        <div class="product__buytogether-arrow"></div>
-
-
-
-        <div class="product__buytogether-heading">Køb sammen!</div>
-        <div class="product__buytogether-teaser">Vores mest populære spegepølse</div>
-        <div class="product__buytogether-checkbox">
-          <form>
-            <div class="field checkbox">
-              <input id="buytogetherfake" type="checkbox">
-              <label for="buytogetherfake" class="checkbox-label">
-                <svg width="18px" height="18px" viewBox="0 0 18 18">
-                  <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
-                  <polyline points="1 9 7 14 15 4"></polyline>
-                </svg>
-                Køb sammen med for
-                <div class="price" data-price="59.95">
-
-                  <span class="value">59,95</span>
-
-                  <span class="currency"></span>
-                </div>
-
-
-
-                DKK
-                <div class="product__unit-type product__unit-type--noMargin product__unit-type--small">
-
-                  <div class="product__unit-type-text product__unit-type-text--small">1 stk</div>
-
-
-
-
-                  <div class="product__before-unit">(&nbsp;ca. </div>
-
-
-                  <div class="product__unit">
-                    300
-                  </div>
-                  <div class="product__unit">g</div>&nbsp;)
-
-                </div>
-
-              </label>
-            </div>
-          </form>
-        </div>
-
-      </div>
-
-      <div class="tab__container">
-        <div class="tab__selector-list">
-
-          <div class="tab__selector ">Ingredienser</div>
-
-
-          <div class="tab__selector ">Ernæring</div>
-
-
-          <div class="tab__selector tab__selector--active ">Opskrifter</div>
-
-        </div>
-        <div class="tab__content-list">
-
-          <div class="tab__content ">
-            <div class="tab__content-text"><p><span>Rå marineret okseculottesteg.</span></p><p>Efter åbning holdbar i 3 dage i køleskab ved højst +5°C.</p><p><span>Okseculottesteg (98%), marineret med 2% marinade (delvis hærdet rapsolie, krydderier og krydderiekstrakter (paprika, hvidløg, peber), salt, hydr. veg. protein, rødvinsekstrakt, glukosesirup).</span></p></div>
-          </div>
-
-
-          <div class="tab__content ">
-            <div class="tab__content-text">
-              <table>
-                <tbody><tr>
-                  <th><span>Energi</span></th>
-                  <td><span>775 kJ / 185 kcal</span></td>
-                </tr>
-                <tr>
-                  <th><span>Fedt</span></th>
-                  <td><span>12 g</span></td>
-                </tr>
-                <tr>
-                  <th><span>- heraf mættede fedtsyrer</span></th>
-                  <td><span>4,4 g</span></td>
-                </tr>
-                <tr>
-                  <th><span>Kulhydrater</span></th>
-                  <td><span>0,6 g</span></td>
-                </tr>
-                <tr>
-                  <th><span>- heraf sukkerarter</span></th>
-                  <td><span>0,5 g</span></td>
-                </tr>
-                <tr>
-                  <th><span>Protein</span></th>
-                  <td><span>19 g</span></td>
-                </tr>
-                <tr>
-                  <th><span>Salt</span></th>
-                  <td><span>0,4 g</span></td>
-                </tr>
-                </tbody></table>
-            </div>
-          </div>
-
-
-          <div class="tab__content tab__content--active">
-            <div class="tab__content-text">
-              <h2>Opskrifter</h2>
-              <p>Læg culotten i et ildfast fad med en lille smule vand i bunden. Steg culotten i ovnen ca. 10 min. ved 250°C. Skru ned til 150°C&nbsp;og steg færdig ca.&nbsp;50&nbsp;min. eller til en kernetemperatur på 55-60°C.<br>Lad stegen hvile tildækket i ca.&nbsp;20 min. inden den skæres for.</p><p>Stegen er også velegnet til til stegning i kuglegrill.</p>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-
-    <aside class="product__cta-container">
-      <div class="wrapper">
-
-        <div class="product__cta-pre-heading">Slagteren</div>
-
-
-        <h2 class="product__cta-heading product__cta-heading--alt">Anbefaler også</h2>
-
-
-        <div class="product__slider">
-          <div class="swiper-container-container">
-            <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
-              <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-
-                <div class="swiper-slide swiper-slide-active" style="width: 241.5px; margin-right: 15px;">
-                  <a href="/webshop/oksekod/oksemorbrad-boffer-af-irsk-angus/" class="product__list-item">
-
-
-                    <div class="product__teaser-image">
-
-
-
-                      <img width="240" href="160" src="/assets/Uploads/8cd2feb3b8/frg__FocusFillWzI0MCwxNjAsIngiLDNd.jpg" srcset="/assets/Uploads/8cd2feb3b8/frg__FocusFillWzI0MCwxNjAsIngiLDNd.jpg 1x, /assets/Uploads/8cd2feb3b8/frg__FocusFillWzQ4MCwzMjAsIngiLDZd.jpg 2x" alt="frg">
-
-                    </div>
-
-
-                    <div class="product__title product__title--teaser">Oksemørbrad bøffer af Irsk Angus</div>
-                    <div class="product__description product__description--teaser">En velkendt klassiker, når det skal være ekstra mørt og lækkert.</div>
-                    <div class="product__price-box">
-                      Fra kr.
-                      <div class="product__price product__price--teaser">
-                        <div class="price" data-price="119.95">
-
-                          <span class="value">119,95</span>
-
-                          <span class="currency"></span>
-                        </div>
-
-
-
-                      </div>
-                    </div>
-                    <div class="product__read-more">
-                      <span class="button arrow alt">Se mere</span>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide swiper-slide-next" style="width: 241.5px; margin-right: 15px;">
-                  <a href="/webshop/oksekod/sydamerikansk-oksefilet-afpudset-hel/" class="product__list-item">
-
-
-                    <div class="product__teaser-image">
-
-
-
-                      <img width="240" href="160" src="/assets/Uploads/585573eed0/hjyt__FocusFillWzI0MCwxNjAsIngiLDNd.jpg" srcset="/assets/Uploads/585573eed0/hjyt__FocusFillWzI0MCwxNjAsIngiLDNd.jpg 1x, /assets/Uploads/585573eed0/hjyt__FocusFillWzQ4MCwzMjAsIngiLDZd.jpg 2x" alt="hjyt">
-
-                    </div>
-
-
-                    <div class="product__title product__title--teaser">Sydamerikansk oksefilet afpudset - hel</div>
-                    <div class="product__description product__description--teaser">Hel Sydamerikansk oksefilet med fedtkant - når i skal være flere, eller fryseren skal fyldes.</div>
-                    <div class="product__price-box">
-                      Fra kr.
-                      <div class="product__price product__price--teaser">
-                        <div class="price" data-price="399">
-
-                          <span class="value">399,00</span>
-
-                          <span class="currency"></span>
-                        </div>
-
-
-
-                      </div>
-                    </div>
-                    <div class="product__read-more">
-                      <span class="button arrow alt">Se mere</span>
-                    </div>
-                  </a>
-                </div>
-
-              </div>
-              <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-            <div class="swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
-            <div class="swiper-button-next swiper-button-disabled" tabindex="0" role="button" aria-label="Next slide" aria-disabled="true"></div>
-          </div>
-        </div>
-
-
-      </div>
-    </aside>
-
   </div>
 </ion-content>
