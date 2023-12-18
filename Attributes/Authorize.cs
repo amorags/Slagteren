@@ -9,7 +9,7 @@ public class AuthorizeAttribute : Attribute, IAuthorizationFilter
 {
     public void OnAuthorization(AuthorizationFilterContext context)
     {
-        var tokenService = (TokenService)context.HttpContext.RequestServices.GetService(typeof(TokenService));
+        var tokenService = (JwtService)context.HttpContext.RequestServices.GetService(typeof(JwtService));
         var token = context.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
         if (token == null)

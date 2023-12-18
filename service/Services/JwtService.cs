@@ -14,7 +14,7 @@ public class JwtService
 {
     private TokenRepository _tokenRepository;
     
-    private static readonly byte[] Secret = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("jwtKey")!);
+    private static readonly byte[] Secret = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("jwtkey")!);
 
     public JwtService(TokenRepository tokenRepository)
     {

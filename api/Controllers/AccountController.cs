@@ -9,29 +9,37 @@ namespace api.Controllers;
 [ApiController]
 public class  AccountController : ControllerBase
 {
-    private readonly AccountService _service;
+    private readonly AccountService _accountService;
+    private readonly JwtService _jwtService;
+    
 
     public AccountController(AccountService service)
     {
-        _service = service;
+        _accountService = _accountService;
     }
 
     [HttpPost]
     [Route("/api/account/login")]
     public ResponseDto Login([FromBody] LoginDto dto)
     {
-        var user = _service.Authenticate(dto.Email, dto.Password);
+        var user = _accountService.Authenticate(dto.Email, dto.Password);
+        
+        var token = _jwtService.createToken(user);
+        
         return new ResponseDto
         {
-            MessageToClient = "Successfully authenticated"
+            MessageToClient = "Successfully authenticated",
+            ResponseData = token
         };
+
+        
     }
 
     [HttpPost]
     [Route("/api/account/register")]
     public ResponseDto Register([FromBody] RegisterUserDto dto)
     {
-        var user = _service.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
+        var user = _accountService.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
         return new ResponseDto
         {
             MessageToClient = "Successfully registered"
