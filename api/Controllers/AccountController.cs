@@ -11,6 +11,7 @@ public class  AccountController : ControllerBase
 {
     private readonly AccountService _accountService;
     private readonly JwtService _jwtService;
+    private readonly MailService _mailService;
     
 
     public AccountController(AccountService service)
@@ -52,8 +53,9 @@ public class  AccountController : ControllerBase
 
         // If email is not in use, proceed with user registration
         var user = _accountService.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
-    
+
         return new ResponseDto
+            
         {
             MessageToClient = "Successfully registered"
         };
