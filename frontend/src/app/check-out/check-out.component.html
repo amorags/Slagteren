@@ -1,3 +1,108 @@
 <ion-content class="ion-no-padding">
-  
+  <section class="hero">
+    <div class="hero__text-container">
+      <div class="hero__text">
+        <div class="hero__pre-heading">Slagterens</div>
+        <div class="hero__heading">Check out</div>
+      </div>
+    </div>
+  </section>
+  <div class="layout">
+    <table class="cart__cart ">
+      <tr>
+        <th colspan="2">Vare</th>
+        <th class="cart__unit-price">Strykpris</th>
+        <th class="quantity">Antal</th>
+        <th class="totalPrice">Totalpris</th>
+        <th class="cart__remove"></th>
+      </tr>
+      <tbody class="cart__items" >
+      <tr class=" odd first" *ngFor="let checkOutItem of state.checkOutItems">
+        <td class="cart__image-td">
+          <div class="cart__image">
+            <img [src]="checkOutItem.productImgUrl" width="115" alt="">
+          </div>
+        </td>
+        <td class="cart__info">
+          <div class="cart__product-name">
+            <h3>{{ checkOutItem.productName }} </h3>
+          </div>
+        </td>
+        <td class="cart__unit-price">{{ checkOutItem.pricePrKilo }} DKK/per kg </td>
+        <td class="cart__quantity">
+          <ion-input type="number" min="0" max="100" placeholder="kg" ></ion-input>
+        </td>
+        <td class="cart__order-item-total" >99,90 DKK </td>
+        <td class="cart__remove">
+          <a><ion-icon name="trash-outline"></ion-icon></a>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr class="cart__toolbar">
+        <td colspan="3" class="cart__toolbar-return">
+          <a routerLink="/webshop">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            Tilbage til webshop
+          </a>
+        </td>
+        <td colspan="3" class="cart__toolbar-update">
+        </td>
+      </tr>
+      <tr class="cart__footer-row">
+        <td colspan="6">
+          <table cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr class="cart__footer-container">
+              <td class="cart__footer-upsell">
+              </td>
+              <td class="cart__footer-modifers">
+                <table cellspacing="0" cellpadding="0" width="100%">
+                  <tbody><tr class="cart__footer-row--first">
+                    <th class="label ">Subtotal (inkl. moms)</th>
+                    <td class="price ">339,70 DKK </td>
+                  </tr>
+                  <tr class=" cart__footer-row">
+                    <th scope="label">
+                      Moms 25.0%
+                    </th>
+                    <td class="price ">
+                      67,94 DKK
+                    </td>
+                  </tr>
+
+                  <tr class=" cart__footer-row">
+                    <th scope="label">Afhentning i butik</th>
+                    <td class="price ">
+                      0,00 DKK
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="2">
+                      <div class="cart__shippingNotification">
+
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="cart__footer-row cart__footer-row--last cart__grandtotal">
+                    <td class="price" colspan="2" id="">339,70 DKK </td>
+                  </tr>
+
+                  </tbody></table>
+
+                <div class="cart__footer-button">
+
+                  <ion-button>Fortsæt til checkout <ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+
+                </div>
+
+              </td>
+            </tr>
+            </tbody></table>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
 </ion-content>

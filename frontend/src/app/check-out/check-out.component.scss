@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mr+Dafoe&family=Oswald:wght@700&display=swap');
+
+.hero {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  height: 255px;
+  background: url("https://as2.ftcdn.net/v2/jpg/01/68/47/35/1000_F_168473569_HgQrDQf3bkvOHyl5wfwe8frlsAfUfagn.jpg") no-repeat center center;
+  background-size: cover;
+  min-width: 900px;
+}
+.hero__text-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.hero__text {
+  color: #ffffff;
+  text-align: center;
+}
+.hero__pre-heading {
+  margin-bottom: 5px;
+  font-size: 40px;
+  line-height: 1;
+  font-family: "Mr Dafoe", sans-serif;
+}
+.hero__heading {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+.layout {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: gray;
+}
+.cart__cart {
+  margin-bottom: 100px;
+  border-collapse: collapse;
+  width: 100%;
+}
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.cart__cart thead tr th {
+  border-top: 1px dashed #979797;
+  padding: 14px 40px 14px 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  color: #333333;
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.cart__items tr {
+  border-bottom: 1px dashed #979797;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}

@@ -29,6 +29,13 @@ export class ProductType {
   typeName?: string;
 }
 
+export class CheckOutItem {
+  productId?: number;
+  productName?: string;
+  productImgUrl?: string;
+  pricePrKilo?: number;
+
+}
 export class ResponseDto<T> {
   responseData?: T;
   messageToClient?: string;
