@@ -37,6 +37,7 @@ public class  AccountController : ControllerBase
 
     [HttpPost]
     [Route("/api/account/register")]
+    [ServiceFilter(typeof(ValidateModel))]
     public ResponseDto Register([FromBody] RegisterUserDto dto)
     {
         var user = _accountService.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);

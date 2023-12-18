@@ -1,4 +1,5 @@
 
+using api.Filters;
 using infrastructure;
 using infrastructure.DataModels;
 using infrastructure.Repositories;
@@ -15,6 +16,7 @@ builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString
 builder.Services.AddSingleton<ProductService>();
 builder.Services.AddSingleton<UserService>();
 
+builder.Services.AddScoped<ValidateModel>();
 
 builder.Services.AddSingleton<UserRepository>();
 builder.Services.AddSingleton<PasswordHashRepository>();

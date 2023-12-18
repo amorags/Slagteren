@@ -7,6 +7,8 @@ import {User, ResponseDto} from '../../models'
 import {AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import {ToastController} from "@ionic/angular";
 import { Router } from '@angular/router';
+
+
 const passwordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const value: string = control.value;
   const hasUpperCase = /[A-Z]/.test(value);
