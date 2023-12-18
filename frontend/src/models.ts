@@ -29,12 +29,12 @@ export class ProductType {
   typeName?: string;
 }
 
-export class CheckOutItem {
+export class CartItem {
   productId?: number;
   productName?: string;
   productImgUrl?: string;
   pricePrKilo?: number;
-
+  quantity?: number;
 }
 export class ResponseDto<T> {
   responseData?: T;

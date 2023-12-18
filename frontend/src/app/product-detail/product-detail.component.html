@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="product__addtocart">
-            <input
+            <input [formControl]="amount"
               type="number"
               class="kilo-input"
               value="1"
@@ -28,7 +28,10 @@
               max="100"
             />
             <p class="product__short-description">kg</p>
-            <ion-button>Læg i kurv <ion-icon name="cart-outline"></ion-icon></ion-button>
+            <ion-button *ngIf="product" (click)="onAddToCart(product, amount)">
+              Læg i kurv <ion-icon name="cart-outline"></ion-icon>
+            </ion-button>
+
           </div>
         </div>
         <div class="product-information">

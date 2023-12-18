@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mr+Dafoe&family=Oswald:wght@700&display=swap');
 
+ion-content {
+  --background: #f5f5f5;
+}
+
 .hero {
   display: flex;
   align-items: stretch;
@@ -40,6 +44,10 @@
   display: flex;
   justify-content: center;
   width: 80%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 table {
   display: table;
@@ -73,10 +81,56 @@ tbody {
   border-color: inherit;
 }
 .cart__items tr {
+  border-top: 1px dashed #979797;
   border-bottom: 1px dashed #979797;
+  height: 142px;
 }
 tr {
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
+}
+th {
+  padding: 14px 40px 14px 0;
+
+}
+.cart__toolbar {
+  height: 50px;
+  border-bottom: 1px dashed #979797;
+}
+.cart__cart tfoot td {
+  vertical-align: top;
+}
+
+.cart__footer-row td {
+  font-weight: 500;
+  color: #2b2b2b;
+}
+.cart__cart td {
+  padding: 33px 0;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.cart__footer-upsell {
+  width: 70%;
+}
+.table_header {
+  border-top: 1px dashed #979797;
+  border-bottom: 1px dashed #979797;
+}
+.cart__grandtotal .price {
+  font-size: 30px;
+  vertical-align: middle;
+  border-top: 1px dashed #979797;
+  border-bottom: 1px dashed #979797 !important;
+}
+.kilo-input {
+  padding-right: 15px;
+  width: 4rem;
+  border-radius: 15px;
+  text-align: center;
+}
+.trash:hover {
+  color: red;
+  cursor: pointer;
 }

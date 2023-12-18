@@ -9,7 +9,7 @@
           </ion-item>
 
           <ion-item>
-            <ion-input label="Varenummer" label-placement="floating" [formControl]="createNewProductForm.controls.productNumber" type="number"></ion-input>
+            <ion-input label="Varenummer" label-placement="floating" [formControl]="createNewProductForm.controls.productNumber" min="0" max="999999" type="number"></ion-input>
           </ion-item>
 
           <ion-item>
@@ -17,15 +17,15 @@
           </ion-item>
 
           <ion-item>
-            <ion-input label="Kilopris" label-placement="floating" [formControl]="createNewProductForm.controls.pricePrKilo" type="number"></ion-input>
+            <ion-input label="Kilopris" label-placement="floating" [formControl]="createNewProductForm.controls.pricePrKilo" min="0" max="9999" type="number"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input label="Produceret I" label-placement="floating" [formControl]="createNewProductForm.controls.productionCountry" ></ion-input>
+            <ion-input label="Produceret I" label-placement="floating" [formControl]="createNewProductForm.controls.productionCountry" maxlength="10" ></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input label="Holdbarhed i dage" label-placement="floating" [formControl]="createNewProductForm.controls.minExpDate" type="number" placeholder="antal dage"></ion-input>
+            <ion-input label="Holdbarhed i dage" label-placement="floating" [formControl]="createNewProductForm.controls.minExpDate" min="0" max="999" type="number" placeholder="antal dage"></ion-input>
           </ion-item>
 
           <ion-item class="grid-col-span-2">

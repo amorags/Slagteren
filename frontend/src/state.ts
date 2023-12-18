@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {User, Product, ProductType, CheckOutItem} from "./models";
+import {User, Product, ProductType, CartItem} from "./models";
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +7,14 @@ import {User, Product, ProductType, CheckOutItem} from "./models";
 export class State {
   products: Product[] = [];
   users: User[] = [];
-  checkOutItems: CheckOutItem[] = [
+  cartItems: CartItem[] = [
     {
       productId: 1,
       productName: 'BBQ kylling',
       productImgUrl: 'https://www.slagtertheilgaard.dk/assets/Uploads/a085da6296/IMG_2445__FocusFillWzU0MCwzNTAsInkiLDI3XQ.jpeg',
-      pricePrKilo: 99.95
+      pricePrKilo: 99.95,
+      quantity: 4
+
     }
   ];
   productTypes: ProductType[] = [

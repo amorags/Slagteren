@@ -45,6 +45,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'webshop',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: '**', component: ErrorComponent
   }
 

@@ -37,3 +37,12 @@ ion-card {
   border-radius: 10px;
   padding: 20px;
 }
+ion-button {
+  --background: #1b1b1b;
+  font-size: large;
+  width: 100%;
+}
+ion-button:hover {
+  --background: #ffa31a;
+  cursor: pointer;
+}

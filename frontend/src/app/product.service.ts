@@ -10,9 +10,20 @@ import {environment} from "../environments/environment.prod";
 })
 export class ProductService {
 
-  constructor( public state: State) { }
+  cart: any[] = [];
+
+
+  constructor(public Http: HttpClient, public state: State) { }
+
+  async fetchProduct() {
+    const result = await firstValueFrom(this.Http.get<ResponseDto<Product[]>>(environment.baseUrl + '/api/products'))
+    this.state.products = result.responseData!;
+  }
+
 
   GetProductById(productId: number): Product | undefined {
     return this.state.products.find(product => product.productId === productId);
   }
+
+
 }

@@ -9,7 +9,7 @@
   </section>
   <div class="layout">
     <table class="cart__cart ">
-      <tr>
+      <tr class="table_header">
         <th colspan="2">Vare</th>
         <th class="cart__unit-price">Strykpris</th>
         <th class="quantity">Antal</th>
@@ -17,24 +17,30 @@
         <th class="cart__remove"></th>
       </tr>
       <tbody class="cart__items" >
-      <tr class=" odd first" *ngFor="let checkOutItem of state.checkOutItems">
+      <tr class=" odd first" *ngFor="let cartItem of state.cartItems">
         <td class="cart__image-td">
           <div class="cart__image">
-            <img [src]="checkOutItem.productImgUrl" width="115" alt="">
+            <img [src]="cartItem.productImgUrl" width="115" alt="">
           </div>
         </td>
         <td class="cart__info">
           <div class="cart__product-name">
-            <h3>{{ checkOutItem.productName }} </h3>
+            <h3>{{ cartItem.productName }} </h3>
           </div>
         </td>
-        <td class="cart__unit-price">{{ checkOutItem.pricePrKilo }} DKK/per kg </td>
+        <td class="cart__unit-price" [formControl]="price">{{ cartItem.pricePrKilo }} DKK/per kg </td>
         <td class="cart__quantity">
-          <ion-input type="number" min="0" max="100" placeholder="kg" ></ion-input>
+          <ion-input class="kilo-input" type="number" [value]="cartItem.quantity" min="0" max="100" placeholder="kg" [formControl]="quantity"></ion-input>
         </td>
-        <td class="cart__order-item-total" >99,90 DKK </td>
+        <td class="cart__order-item-total">{{ total | currency: 'DKK' }}</td>
         <td class="cart__remove">
-          <a><ion-icon name="trash-outline"></ion-icon></a>
+          <ion-icon
+            class="trash"
+            name="trash-outline"
+            size="medium"
+            (click)="removeItem(cartItem.productId)"
+          ></ion-icon>
+
         </td>
       </tr>
       </tbody>
@@ -59,41 +65,28 @@
                 <table cellspacing="0" cellpadding="0" width="100%">
                   <tbody><tr class="cart__footer-row--first">
                     <th class="label ">Subtotal (inkl. moms)</th>
-                    <td class="price ">339,70 DKK </td>
+                    <td class="price ">0,00 DKK </td>
                   </tr>
                   <tr class=" cart__footer-row">
                     <th scope="label">
                       Moms 25.0%
                     </th>
                     <td class="price ">
-                      67,94 DKK
-                    </td>
-                  </tr>
-
-                  <tr class=" cart__footer-row">
-                    <th scope="label">Afhentning i butik</th>
-                    <td class="price ">
                       0,00 DKK
                     </td>
                   </tr>
 
-                  <tr>
-                    <td colspan="2">
-                      <div class="cart__shippingNotification">
-
-                      </div>
-                    </td>
-                  </tr>
 
                   <tr class="cart__footer-row cart__footer-row--last cart__grandtotal">
-                    <td class="price" colspan="2" id="">339,70 DKK </td>
+                    <td class="price" colspan="2" id="">0,00 DKK </td>
                   </tr>
 
                   </tbody></table>
 
                 <div class="cart__footer-button">
 
-                  <ion-button>Fortsæt til checkout <ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+                  <ion-button [disabled]="isCartEmpty()" (click)="confirmOrder()">Fortsæt til checkout <ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+
 
                 </div>
 

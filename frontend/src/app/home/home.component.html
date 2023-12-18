@@ -11,18 +11,7 @@
     <aside class="category__sidebar">
       <ion-list-header class="category__sidebar-heading">Produkter</ion-list-header>
       <ion-list lines="none" class="category__sidebar-list">
-        <ion-item class="category__sidebar-list-item link" href="/webshop/oksekod/">Oksekød</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/svinekod/">Svinekød</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/kalvekod/">Kalvekød</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/fjerkrae/">Fjerkræ</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/polser/">Pølser</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/rogvarer/">Røgvarer</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/palaeg/">Pålæg</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/salat-og-delikatesse/">Salat og Delikatesse</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/desserter/">Desserter</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/lam/">Lam</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/faerdigretter/">Færdigretter - frost</ion-item>
-        <ion-item class="category__sidebar-list-item link" href="/webshop/kodpakker/">Kødpakker</ion-item>
+        <ion-item class="category__sidebar-list-item link" href="" *ngFor="let productType of state.productTypes">{{productType.typeName}}</ion-item>
       </ion-list>
     </aside>
 
