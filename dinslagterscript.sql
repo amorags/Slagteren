@@ -25,14 +25,13 @@ alter table product_types
 create table products
 (
     product_id         bigserial
-        constraint products_pk
-            primary key,
+        primary key,
     product_number     bigint       not null,
     product_name       varchar(150) not null,
     price_pr_kilo      numeric      not null,
     type_id            integer      not null
         constraint products_type_id_fk
-            references ??? (),
+            references product_types,
     country_of_birth   varchar(50)  not null,
     production_country varchar(50)  not null,
     description        varchar(255) not null,
@@ -46,8 +45,7 @@ alter table products
 create table users
 (
     user_id   integer     default nextval('dinslagter.customers_customer_id_seq'::regclass) not null
-        constraint customers_pk
-            primary key,
+        primary key,
     firstname varchar(50)                                                                   not null,
     lastname  varchar(50)                                                                   not null,
     email     varchar(100)                                                                  not null,
@@ -65,15 +63,14 @@ alter table users
 create table credit_card
 (
     card_id        bigserial
-        constraint credit_card_pk
-            primary key,
+        primary key,
     cardnumber     varchar(16)  not null,
     cardholdername varchar(120) not null,
     expirationdate date         not null,
     cvv            bigint       not null,
     customer_id    integer      not null
         constraint credit_card_customers_customer_id_fk
-            references ??? ()
+            references users
 );
 
 alter table credit_card
@@ -82,11 +79,10 @@ alter table credit_card
 create table shopping_cart
 (
     cart_id     integer default nextval('dinslagter.shoppingcart_cart_id_seq'::regclass) not null
-        constraint shoppingcart_pk
-            primary key,
+        primary key,
     customer_id bigint                                                                   not null
         constraint shoppingcart_customers_customer_id_fk
-            references ??? (),
+            references users,
     created_at  date                                                                     not null,
     basket      varchar(255)
 );
@@ -94,38 +90,36 @@ create table shopping_cart
 alter table shopping_cart
     owner to uxrlxmed;
 
-drop table dinslagter.passwordhash;
-
-create table dinslagter.passwordhash
-(
-    password_id   bigint PRIMARY KEY generated always as IDENTITY,
-    password_hash varchar(350)                                                             not null,
-    salt          varchar(250)                                                             not null,
-    algorithm     varchar(50)                                                              not null,
-    user_id       integer                                                                   not null
-        constraint passwords_users_user_id_fk
-            references dinslagter.users (user_id)
-);
-
-alter table passwordhash
-    owner to uxrlxmed;
-
 create table cart_items
 (
     item_id    bigserial
-        constraint cart_items_pk
-            primary key,
+        primary key,
     cart_id    bigint not null
-        constraint cart__fk
-            references ??? (),
+        constraint cart_items_cart_fk
+            references shopping_cart,
     product_id bigint not null
-        constraint product_id___fk
-            references ??? (),
+        constraint cart_items_product_fk
+            references products,
     quantity   bigint not null,
     price      bigint not null
 );
 
 alter table cart_items
+    owner to uxrlxmed;
+
+create table passwordhash
+(
+    password_id   bigint generated always as identity
+        primary key,
+    password_hash varchar(350) not null,
+    salt          varchar(250) not null,
+    algorithm     varchar(50)  not null,
+    user_id       integer      not null
+        constraint passwords_users_user_id_fk
+            references users
+);
+
+alter table passwordhash
     owner to uxrlxmed;
 
 
