@@ -1,7 +1,30 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 using infrastructure.DataModels;
 
 namespace api.TransferModels;
+
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+public class CustomPasswordValidationAttribute : ValidationAttribute
+{
+    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    {
+        if (value != null)
+        {
+            string password = value.ToString();
+
+            // Your custom password validation logic
+            const string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?""{}|<>]).{8,}$";
+
+            if (!Regex.IsMatch(password, pattern))
+            {
+                return new ValidationResult(ErrorMessage ?? "Invalid password format.");
+            }
+        }
+
+        return ValidationResult.Success;
+    }
+}
 
 public class RegisterUserDto
 {
@@ -34,6 +57,7 @@ public class RegisterUserDto
 
     [Required(ErrorMessage = "Password is required")]
     [MinLength(8, ErrorMessage = "Password must be at least 8 characters")]
+    [CustomPasswordValidation(ErrorMessage = "Custom Password Validation Failed.")]
     public string Password { get; set; }
 
 

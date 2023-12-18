@@ -41,12 +41,35 @@ public class AccountService
 
     public User Register(string firstName, string lastName, string email, string address, int zip, string city, string country, int phone, string password)
     {
-        var hashAlgorithm = PasswordHashAlgorithm.Create();
-        var salt = hashAlgorithm.GenerateSalt();
-        var passwordHash = hashAlgorithm.HashPassword(password, salt);
-        var user = _userRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
-        _passwordHashRepository.Create(user.UserId, passwordHash, salt, hashAlgorithm.GetName());
-        return user;
+        try
+        {
+            // Check if the email is unique
+            if (!_userRepository.DoesUserWithEmailExist(email))
+            {
+                // Email is unique, proceed with registration
+                var hashAlgorithm = PasswordHashAlgorithm.Create();
+                var salt = hashAlgorithm.GenerateSalt();
+                var passwordHash = hashAlgorithm.HashPassword(password, salt);
+                var user = _userRepository.CreateUser(firstName, lastName, email, address, zip, city, country, phone);
+                _passwordHashRepository.Create(user.UserId, passwordHash, salt, hashAlgorithm.GetName());
+                return user;
+            }
+            else
+            {
+                // Email is not unique, handle accordingly (throw an exception, log, etc.)
+                throw new ArgumentException("Email address is already registered.");
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("Registration error: {Message}", e);
+            throw; // Rethrow the exception to handle it at the controller level
+        }
+    }
+    
+    public bool IsEmailInUse(string email)
+    {
+        return _userRepository.DoesUserWithEmailExist(email);
     }
     
 

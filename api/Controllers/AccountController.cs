@@ -15,7 +15,7 @@ public class  AccountController : ControllerBase
 
     public AccountController(AccountService service)
     {
-        _accountService = _accountService;
+        _accountService = service;
     }
 
     [HttpPost]
@@ -40,7 +40,19 @@ public class  AccountController : ControllerBase
     [ServiceFilter(typeof(ValidateModel))]
     public ResponseDto Register([FromBody] RegisterUserDto dto)
     {
+        // Check if the email is already in use
+        if (_accountService.IsEmailInUse(dto.Email))
+        {
+            HttpContext.Response.StatusCode = 400; // Set the status code to 400 for conflict
+            return new ResponseDto
+            {
+                MessageToClient = "Email is already in use.",
+            };
+        }
+
+        // If email is not in use, proceed with user registration
         var user = _accountService.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
+    
         return new ResponseDto
         {
             MessageToClient = "Successfully registered"
