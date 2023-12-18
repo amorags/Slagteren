@@ -11,11 +11,12 @@ public class  AccountController : ControllerBase
 {
     private readonly AccountService _accountService;
     private readonly JwtService _jwtService;
+    private readonly MailService _mailService;
     
 
     public AccountController(AccountService service)
     {
-        _accountService = _accountService;
+        _accountService = service;
     }
 
     [HttpPost]
@@ -40,7 +41,11 @@ public class  AccountController : ControllerBase
     public ResponseDto Register([FromBody] RegisterUserDto dto)
     {
         var user = _accountService.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
+        
+        //_mailService.SendMail(user);
+        
         return new ResponseDto
+            
         {
             MessageToClient = "Successfully registered"
         };
