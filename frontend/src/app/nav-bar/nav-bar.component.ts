@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenServiceService} from '../../../serviceAngular/token-service.service'
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent  implements OnInit {
   searchQuery: string = '';
 
-  constructor() { }
+  isAdmin(): boolean {
+    const userRole = this.tokenService.getUserRole();
+    return userRole === 'admin';
+  }
+
+  constructor(private tokenService: TokenServiceService) { }
 
   ngOnInit() {}
 
