@@ -34,6 +34,7 @@ export class LoginComponent  implements OnInit {
         environment.baseUrl + '/api/account/login',
         this.loginForm.getRawValue()
       );
+      
       const response = await firstValueFrom<ResponseDto<User>>(observable);
       this.state.users.push(response.responseData!);
 

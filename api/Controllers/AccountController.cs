@@ -30,7 +30,7 @@ public class  AccountController : ControllerBase
         return new ResponseDto
         {
             MessageToClient = "Successfully authenticated",
-            ResponseData = token
+            ResponseData = new {token}
         };
 
         
@@ -53,7 +53,7 @@ public class  AccountController : ControllerBase
 
         // If email is not in use, proceed with user registration
         var user = _accountService.Register(dto.FirstName, dto.LastName, dto.Email, dto.Address, dto.Zip, dto.City, dto.Country, dto.Phone, dto.Password);
-
+        
         return new ResponseDto
             
         {
