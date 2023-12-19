@@ -1,5 +1,6 @@
 using api.Filters;
 using api.TransferModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using service;
 using service.Services;
@@ -38,6 +39,7 @@ public class ProductController : ControllerBase
     [HttpPost]
     [ValidateModel]
     [Route("/api/product")]
+    [Authorize]
     public ResponseDto Post([FromBody]CreateProductRequestDto dto)
     {
         HttpContext.Response.StatusCode = StatusCodes.Status201Created;

@@ -17,7 +17,7 @@
 
     <main class="main category__main">
       <h1 class="category__heading alt smaller">Webshop</h1>
-      <ion-grid>
+      <ion-grid style="margin-bottom: 150px">
         <ion-row>
           <ion-card style="flex: 1 1 25%" *ngFor="let product of state.products">
             <img alt="{{ product.productName }}" [src]="product.imgUrl" />
@@ -32,7 +32,7 @@
                   <p>kr. pr kg</p>
                   <ion-text>{{ product.pricePrKilo }} </ion-text>
                 </div>
-                <ion-button [routerLink]="['/details', product.productId]" >Se mere  <ion-icon name="return-down-forward-outline"></ion-icon></ion-button>
+                <ion-button [routerLink]="['/details', product.productId]">Se mere  <ion-icon name="return-down-forward-outline"></ion-icon></ion-button>
               </div>
           </ion-card>
         </ion-row>
