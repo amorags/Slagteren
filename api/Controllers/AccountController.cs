@@ -14,9 +14,11 @@ public class  AccountController : ControllerBase
     private readonly MailService _mailService;
     
 
-    public AccountController(AccountService service)
+    public AccountController(AccountService service, JwtService jwtService, MailService mailService)
     {
         _accountService = service;
+        _jwtService = jwtService;
+        _mailService = mailService;
     }
 
     [HttpPost]
@@ -32,7 +34,6 @@ public class  AccountController : ControllerBase
             MessageToClient = "Successfully authenticated",
             ResponseData = new {token}
         };
-
         
     }
 

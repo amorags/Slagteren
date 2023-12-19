@@ -3,5 +3,5 @@
 public class ResponseDto
 {
     public string MessageToClient { get; set; }
-    public Object? ResponseData { get; set; }
+    public object ResponseData { get; set; }
 }

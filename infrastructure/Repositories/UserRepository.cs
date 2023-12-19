@@ -26,7 +26,7 @@ public class UserRepository
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
         phone as {nameof(UserFeedQuery.Phone)},
-        Role as {nameof(UserFeedQuery.Role)}
+        role as {nameof(UserFeedQuery.Role)}
         FROM dinslagter.users
 ";
         
@@ -92,7 +92,7 @@ public class UserRepository
         city as {nameof(User.City)},
         country as {nameof(User.Country)},
         phone as {nameof(User.Phone)},
-        Role as {nameof(User.Role)}
+        role as {nameof(User.Role)}
         ";
             
         using (var conn = _dataSource.OpenConnection())
@@ -115,7 +115,8 @@ public class UserRepository
         zip as {nameof(UserFeedQuery.Zip)},
         city as {nameof(UserFeedQuery.City)},
         country as {nameof(UserFeedQuery.Country)},
-        phone as {nameof(UserFeedQuery.Phone)}
+        phone as {nameof(UserFeedQuery.Phone)},
+        role as {nameof(UserFeedQuery.Role)}
         
         FROM dinslagter.users
         WHERE user_id = @userId 

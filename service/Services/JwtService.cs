@@ -23,6 +23,14 @@ public class JwtService
 
     public string createToken(User user)
     {
+        if (user == null)
+        {
+            throw new ArgumentNullException(nameof(user), "User cannot be null.");
+        }
+
+        // Print user details to console
+        Console.WriteLine($"User Details: UserId={user.UserId}, Email={user.Email}");
+
         var tokenHandler = new JwtSecurityTokenHandler();
 
         var tokenDescriptor = new SecurityTokenDescriptor
@@ -34,8 +42,7 @@ public class JwtService
                 new Claim(ClaimTypes.Role, user.Role.ToString()),
             }),
             Expires = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now.AddDays(7)),
-            SigningCredentials =
-                new SigningCredentials(new SymmetricSecurityKey(Secret), SecurityAlgorithms.HmacSha256Signature)
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Secret), SecurityAlgorithms.HmacSha256Signature)
         };
 
         try
@@ -45,10 +52,15 @@ public class JwtService
         }
         catch (Exception e)
         {
-            throw new Exception("Failed to create a token", e.InnerException);
+            // Log the exception details for debugging purposes
+            Console.WriteLine($"Exception while creating token: {e}");
+
+            // Rethrow the original exception without attempting to access InnerException
+            throw new Exception("Failed to create a token", e);
         }
 
     }
+
 
     public User validateTokenAndReturnUser(string token)
     {

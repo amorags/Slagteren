@@ -24,6 +24,7 @@ builder.Services.AddSingleton<AccountService>();
 
 builder.Services.AddSingleton<TokenRepository>();
 builder.Services.AddSingleton<JwtService>();
+builder.Services.AddSingleton <MailService>();
 
 
 builder.Services.AddSingleton<ProductRepository>();
