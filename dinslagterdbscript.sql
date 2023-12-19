@@ -1,17 +1,3 @@
-create sequence customers_customer_id_seq
-    as integer;
-
-alter sequence customers_customer_id_seq owner to uxrlxmed;
-
-create sequence shoppingcart_cart_id_seq
-    as integer;
-
-alter sequence shoppingcart_cart_id_seq owner to uxrlxmed;
-
-create sequence passwords_password_id_seq;
-
-alter sequence passwords_password_id_seq owner to uxrlxmed;
-
 create table product_types
 (
     type_id   serial
@@ -54,26 +40,10 @@ create table users
     city      varchar(50)                                                                   not null,
     country   varchar(75)                                                                   not null,
     phone     integer                                                                       not null,
-    "Role"    varchar(10) default 'Customer'::character varying                             not null
+    role      varchar(10) default 'Customer'::character varying                             not null
 );
 
 alter table users
-    owner to uxrlxmed;
-
-create table credit_card
-(
-    card_id        bigserial
-        primary key,
-    cardnumber     varchar(16)  not null,
-    cardholdername varchar(120) not null,
-    expirationdate date         not null,
-    cvv            bigint       not null,
-    customer_id    integer      not null
-        constraint credit_card_customers_customer_id_fk
-            references users
-);
-
-alter table credit_card
     owner to uxrlxmed;
 
 create table shopping_cart
