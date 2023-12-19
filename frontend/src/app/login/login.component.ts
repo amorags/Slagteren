@@ -6,6 +6,7 @@ import { State } from 'src/state';
 import {firstValueFrom} from "rxjs";
 import { environment } from 'src/environments/environment.prod';
 import { ResponseDto, User } from 'src/models';
+import {TokenServiceService} from '../../../serviceAngular/token-service.service'
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent  implements OnInit {
 
   })
 
-  constructor(public http: HttpClient, public state: State, public fb: FormBuilder, public toastController: ToastController) { }
+  constructor(public http: HttpClient, public state: State, public fb: FormBuilder, public toastController: ToastController, private tokenSerivce: TokenServiceService) { }
 
   ngOnInit() {}
 
@@ -30,13 +31,15 @@ export class LoginComponent  implements OnInit {
 
     try {
 
-      const observable = this.http.post<ResponseDto<User>>(
+      const observable = this.http.post<ResponseDto<{ token:string }>>(
         environment.baseUrl + '/api/account/login',
         this.loginForm.getRawValue()
       );
-      
-      const response = await firstValueFrom<ResponseDto<User>>(observable);
-      this.state.users.push(response.responseData!);
+
+      const response = await firstValueFrom(observable);
+      //this.state.users.push(response.responseData.token);
+
+      this.tokenSerivce.setToken(response.responseData!.token);
 
       const toast = await this.toastController.create({
         message: 'Du er nu logget ind',

@@ -14,9 +14,11 @@ import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
 import {AddProductComponent} from "./add-product/add-product.component";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import {CheckOutComponent} from "./check-out/check-out.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
+import {TokenServiceService} from "../../serviceAngular/token-service.service"
+import { Observable } from 'rxjs';
 
 @NgModule({
 
@@ -27,4 +29,24 @@ import {ProductDetailComponent} from "./product-detail/product-detail.component"
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
+
+
 export class AppModule {}
+
+export class AuthHttpInterceptor implements HttpInterceptor {constructor(private readonly service: TokenServiceService) {}
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const token = this.service.gettoken();
+    if (token && this.sameOrigin(req)) {
+      return next.handle(req.clone({
+        headers: req.headers.set("Authorization", `Bearer ${token}`)
+      }));
+    }
+    return next.handle(req);
+  }
+
+  private sameOrigin(req: HttpRequest<any>) {
+    const isRelative = !req.url.startsWith("http://") || !req.url.startsWith("https://");
+    return req.url.startsWith(location.origin) || isRelative;
+  }
+}
