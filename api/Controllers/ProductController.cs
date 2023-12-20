@@ -39,7 +39,7 @@ public class ProductController : ControllerBase
     [HttpPost]
     [ValidateModel]
     [Route("/api/product")]
-    [Authorize]
+    
     public ResponseDto Post([FromBody]CreateProductRequestDto dto)
     {
         HttpContext.Response.StatusCode = StatusCodes.Status201Created;

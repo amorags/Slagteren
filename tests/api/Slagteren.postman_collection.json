@@ -197,6 +197,39 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Login Sucess",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productNumber\": 0,\r\n  \"productName\": \"string\",\r\n  \"pricePrKilo\": 0.01,\r\n  \"productType\": 2147483647,\r\n  \"countryOfBirth\": \"string\",\r\n  \"productionCountry\": \"string\",\r\n  \"description\": \"string\",\r\n  \"imgUrl\": \"string\",\r\n  \"minExpDate\": 2147483647\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5256/api/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5256",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
