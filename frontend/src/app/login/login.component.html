@@ -16,15 +16,11 @@
           <ion-input [formControl]="loginForm.controls.password" type="password" placeholder="Indtast dit password"></ion-input>
         </ion-item>
 
-        <ion-button (click)="submit()" shape="round" [routerLink]="['/home']">Log In</ion-button>
+        <ion-button color="danger" (click)="submit()" shape="round" [routerLink]="['/home']">Log In</ion-button>
       </ion-card-content>
 
       <ion-label class="ion-text-center">
         Don't have an account? <a [routerLink]="['/signup']">Sign Up</a>
-      </ion-label>
-
-      <ion-label class="ion-text-center">
-        Need help? <a href="#">Click here</a>
       </ion-label>
 
     </ion-card>

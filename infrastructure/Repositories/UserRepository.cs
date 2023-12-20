@@ -69,7 +69,7 @@ public class UserRepository
         var sql = @"DELETE FROM dinslagter.users WHERE user_id  = @userId;";
         using (var conn = _dataSource.OpenConnection())
         {
-            return conn.Execute(sql, new { userId = userId }) == 1;
+            return conn.Execute(sql, new { userId }) == 1;
         }
     }
     

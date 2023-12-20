@@ -40,3 +40,10 @@ ion-card {
   border-radius: 10px;
   padding: 15px;
 }
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+ion-icon:hover {
+  color: red;
+  cursor: pointer;
+}

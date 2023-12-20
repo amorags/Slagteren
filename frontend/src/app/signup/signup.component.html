@@ -15,7 +15,7 @@
           <ion-input [formControl]="createNewUser.controls.lastName" placeholder="Indtast efternavn"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="grid-col-span-2">
           <ion-label position="floating">Email</ion-label>
           <ion-input [formControl]="createNewUser.controls.email" type="email" placeholder="Indtast din email"></ion-input>
           <div *ngIf="createNewUser.controls.email.hasError('email') && (createNewUser.controls.email.dirty || createNewUser.controls.email.touched)">
@@ -59,13 +59,10 @@
           </div>
         </ion-item>
 
-        <ion-button [disabled]="createNewUser.invalid" (click)="submit()"  shape="round">Opret Dig</ion-button>
+        <ion-button color="danger" class="grid-col-span-2" [disabled]="createNewUser.invalid" (click)="submit()"  shape="round">Opret Dig</ion-button>
 
         </div>
       </ion-card-content>
-      <ion-label class="ion-text-center">
-        Brug for hjælp?<a routerLink="#">Klik her</a>
-      </ion-label>
 
     </ion-card>
   </section>
