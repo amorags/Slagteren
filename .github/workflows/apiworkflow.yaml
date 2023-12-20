@@ -28,3 +28,4 @@ jobs:
           kill $API_PID
         env:
           pgconn: ${{secrets.PGCONN}}
+          jwtkey: ${{secrets.JWTKEY}}
