@@ -200,6 +200,23 @@
 		},
 		{
 			"name": "Login Sucess",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -214,10 +231,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"productNumber\": 0,\r\n  \"productName\": \"string\",\r\n  \"pricePrKilo\": 0.01,\r\n  \"productType\": 2147483647,\r\n  \"countryOfBirth\": \"string\",\r\n  \"productionCountry\": \"string\",\r\n  \"description\": \"string\",\r\n  \"imgUrl\": \"string\",\r\n  \"minExpDate\": 2147483647\r\n}"
+					"raw": "{\r\n  \"email\": \"user@email.com\",\r\n  \"password\": \"@E2stringst\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5256/api/product",
+					"raw": "http://localhost:5256/api/account/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -225,7 +242,101 @@
 					"port": "5256",
 					"path": [
 						"api",
-						"product"
+						"account",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Fail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"user@email.com\",\r\n  \"password\": \"@E2stringst\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5256/api/account/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5256",
+					"path": [
+						"api",
+						"account",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"fetched\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5256/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5256",
+					"path": [
+						"api",
+						"products"
 					]
 				}
 			},
