@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mr+Dafoe&family=Oswald:wght@700&display=swap');
+
+ion-content {
+  --background: #f5f5f5;
+}
+
+.hero {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  height: 450px;
+  background: url("https://img.freepik.com/free-photo/top-view-meat-with-garlic-copy-space_23-2148611052.jpg?w=1380&t=st=1703015810~exp=1703016410~hmac=087b50ed74a5c4315e73bc87d4734f05babaddef52797457f6ac878c39eccc47") no-repeat center center;
+  background-size: cover;
+  min-width: 900px;
+}
+.hero__text-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.hero__text {
+  color: #ffffff;
+  text-align: center;
+}
+.hero__pre-heading {
+  display: flex;
+  margin-bottom: 5px;
+  font-size: 40px;
+  line-height: 1;
+  font-family: "Mr Dafoe", sans-serif;
+}
+.hero__heading {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+}
+.info-label__container--small {
+  border-bottom: 1px dashed #979797;
+}
+
+.info-label__container {
+  padding: 20px 0;
+}
+.wrapper {
+  margin: 0 auto;
+  width: 1170px;
+  max-width: 100%;
+  padding: 0 15px;
+}
+.info-label__list--vertical, .info-label__list--small {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.info-label__list--small .info-label__item {
+  margin: 20px;
+}
+
+.info-label__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.info-label__title {
+  grid-area: title;
+  font-size: 17px;
+  font-weight: bold;
+}
+.info-label__text {
+  grid-area: text;
+  font-size: 12px;
+  font-weight: 400;
+}
+.info-label__icon {
+  grid-area: icon;
+  margin-right: 23px;
+  font-size: 27px;
+  text-align: right;
+}
+.product__cta-container {
+  margin-top: 65px;
+  padding-bottom: 70px;
+}
+.product__cta-pre-heading {
+  font-size: 40px;
+  line-height: 1;
+  font-family: "Mr Dafoe",sans-serif;
+  text-align: center;
+}
+.product__cta-heading {
+  text-align: center;
+}
+.product__cta-link-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+ion-button {
+  color: white;
+
+}
+.footer__over {
+  padding: 40px 40px 120px 40px;
+  background: #ffffff;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 2rem;
+  align-items: center;
+}
+.footer__over-pre-heading {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 2px 14px;
+  font-size: 11px;
+  color: #fff;
+  background: #E51E25;
+  border-radius: 40px;
+}
+.footer__over-heading {
+  font-size: 60px;
+}
+h1, .footer__over-heading, .employee__heading, .product__cta-heading, .modal__headline {
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-family: "Oswald",sans-serif;
+  text-transform: uppercase;
+}
+p, ul {
+  margin: 0 0 30px 0;
+  padding-left: 0;
+  list-style: none;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.main__content-image {
+  display: block;
+  position: relative;
+  z-index: initial;
+  margin-bottom: 10px;
+  border: 16px solid #ffffff;
+  height: fit-content;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: -2px -2px 4px rgba(0,0,0,0.2), 0px 2px 4px rgba(0,0,0,0.15);
+}
+
+.footer__over-image {
+  margin-top: 20px;
+}
