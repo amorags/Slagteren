@@ -9,7 +9,7 @@
       <div >
         <ul class="header__menu">
           <li>
-            <a class="nav" routerLink="/webshop">Webshop</a>
+            <a class="nav" routerLink="/web-shop">Webshop</a>
           </li>
           <li>
             <a class="nav" routerLink="/om-os">Om os</a>
@@ -17,12 +17,10 @@
         </ul>
       </div>
       <div class="header__icons">
-        <a *ngIf="isAdmin()" routerLink="/add-product">
-          <ion-icon size="large" name="add-outline"></ion-icon>
-        </a>
-        <a routerLink="/login"><ion-icon size="large" name="lock-closed-outline"></ion-icon></a>
-        <a routerLink="/inbox"><ion-icon size="large" name="mail-outline"></ion-icon></a>
-        <a routerLink="/check-out"><ion-icon size="large" name="cart-outline"></ion-icon></a>
+        <ion-icon *ngIf="isAdmin()" routerLink="/add-product" size="large" name="add-outline"></ion-icon>
+        <ion-icon routerLink="/login" size="large" name="lock-closed-outline"></ion-icon>
+        <ion-icon *ngIf="isAdmin()" routerLink="/list-customer" size="large" name="list-outline"></ion-icon>
+        <ion-icon routerLink="/check-out" size="large" name="cart-outline"></ion-icon>
       </div>
     </div>
   </div>

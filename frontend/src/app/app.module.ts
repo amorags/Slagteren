@@ -19,11 +19,22 @@ import {CheckOutComponent} from "./check-out/check-out.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {TokenServiceService} from "../../serviceAngular/token-service.service"
 import { Observable } from 'rxjs';
+import {WebShopComponent} from "./web-shop/web-shop.component";
 
 @NgModule({
 
 
-  declarations: [AppComponent, NavBarComponent, HomeComponent, ListUserComponent, ErrorComponent, LoginComponent, SignupComponent, AddProductComponent, CheckOutComponent, ProductDetailComponent],
+  declarations: [AppComponent,
+    NavBarComponent,
+    HomeComponent,
+    ListUserComponent,
+    ErrorComponent,
+    LoginComponent,
+    SignupComponent,
+    AddProductComponent,
+    CheckOutComponent,
+    ProductDetailComponent,
+    WebShopComponent],
 
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot({mode: "ios"}), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

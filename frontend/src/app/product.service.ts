@@ -10,8 +10,6 @@ import {environment} from "../environments/environment.prod";
 })
 export class ProductService {
 
-  cart: any[] = [];
-
 
   constructor(public Http: HttpClient, public state: State) { }
 

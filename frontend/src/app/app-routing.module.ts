@@ -10,6 +10,7 @@ import {SignupComponent} from "./signup/signup.component";
 import {AddProductComponent} from "./add-product/add-product.component";
 import {CheckOutComponent} from "./check-out/check-out.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
+import {WebShopComponent} from "./web-shop/web-shop.component";
 
 const routes: Routes = [
   {
@@ -45,9 +46,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'webshop',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'web-shop', component: WebShopComponent,
   },
   {
     path: '**', component: ErrorComponent

@@ -7,7 +7,7 @@ import {TokenServiceService} from '../../../serviceAngular/token-service.service
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent  implements OnInit {
-  searchQuery: string = '';
+
 
   isAdmin(): boolean {
     const userRole = this.tokenService.getUserRole();
@@ -17,8 +17,4 @@ export class NavBarComponent  implements OnInit {
   constructor(private tokenService: TokenServiceService) { }
 
   ngOnInit() {}
-
-  onSearch() {
-
-  }
 }

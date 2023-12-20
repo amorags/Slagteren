@@ -21,6 +21,7 @@ export class User {
   city?: string;
   country?: string;
   phone?: number;
+  role?: string;
 }
 
 

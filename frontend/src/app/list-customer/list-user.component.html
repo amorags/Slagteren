@@ -10,11 +10,11 @@
 
   <div class="category__wrapper wrapper">
     <aside class="category__sidebar">
-      <ion-list-header class="category__sidebar-heading">Produkter</ion-list-header>
+      <ion-list-header class="category__sidebar-heading">Bruger</ion-list-header>
       <ion-list lines="none" class="category__sidebar-list">
         <ion-item-sliding>
-          <ion-item class="category__sidebar-list-item link" href="/webshop/oksekod/">Oksekød</ion-item>
-          <ion-item class="category__sidebar-list-item link" href="/webshop/svinekod/">Svinekød</ion-item>
+          <ion-item class="category__sidebar-list-item link" routerLink="">Kunde</ion-item>
+          <ion-item class="category__sidebar-list-item link" routerLink="">Administrator</ion-item>
         </ion-item-sliding>
 
       </ion-list>
@@ -23,24 +23,26 @@
     <main class="main category__main">
       <ion-list [inset]="true">
         <ion-item-sliding *ngFor="let user of state.users">
-          <ion-item [button]="true">
+          <ion-item [button]="true"  >
             <ion-avatar aria-hidden="true" slot="start">
               <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
             </ion-avatar>
-            <ion-label>{{user.firstName}} {{user.lastName}}</ion-label>
-            <p>{{user.email}}</p>
+            <ion-label>
+              <strong>{{user.firstName}} {{user.lastName}}</strong>
+              <ion-text>Bruger type: {{user.role}}</ion-text><br />
+              <ion-text>Email: {{user.email}}</ion-text><br />
+              <ion-text>Tel: {{user.phone}}</ion-text><br />
+              <ion-note color="medium" class="ion-text-wrap">
+                Adresse: {{user.address}}, {{user.zip}} {{user.city}} {{user.country}}
+              </ion-note>
+            </ion-label>
+            <div class="toolBelt" slot="end">
+              <div>
+                <ion-icon size="large" name="build-outline"></ion-icon>
+                <ion-icon size="large" name="trash-outline" (click)="deleteUser(user.userId)"></ion-icon>
+              </div>
+            </div>
           </ion-item>
-          <ion-item-options slot="end">
-            <ion-item-option color="warning">
-              <ion-icon slot="icon-only" name="pin"></ion-icon>
-            </ion-item-option>
-            <ion-item-option color="tertiary">
-              <ion-icon slot="icon-only" name="share"></ion-icon>
-            </ion-item-option>
-            <ion-item-option color="danger" expandable="true">
-              <ion-icon slot="icon-only" name="trash"></ion-icon>
-            </ion-item-option>
-          </ion-item-options>
         </ion-item-sliding>
       </ion-list>
     </main>

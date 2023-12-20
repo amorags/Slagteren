@@ -7,16 +7,7 @@ import {User, Product, ProductType, CartItem} from "./models";
 export class State {
   products: Product[] = [];
   users: User[] = [];
-  cartItems: CartItem[] = [
-    {
-      productId: 1,
-      productName: 'BBQ kylling',
-      productImgUrl: 'https://www.slagtertheilgaard.dk/assets/Uploads/a085da6296/IMG_2445__FocusFillWzU0MCwzNTAsInkiLDI3XQ.jpeg',
-      pricePrKilo: 99.95,
-      quantity: 4
-
-    }
-  ];
+  cartItems: CartItem[] = [];
   productTypes: ProductType[] = [
     {
     typeId: 1,
