@@ -7,6 +7,7 @@ import {firstValueFrom} from "rxjs";
 import { environment } from 'src/environments/environment.prod';
 import { ResponseDto, User } from 'src/models';
 import {TokenServiceService} from '../../../serviceAngular/token-service.service'
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent  implements OnInit {
 
   })
 
-  constructor(public http: HttpClient, public state: State, public fb: FormBuilder, public toastController: ToastController, private tokenSerivce: TokenServiceService) { }
+  constructor(public http: HttpClient, public state: State, public fb: FormBuilder, public router: Router,
+              public toastController: ToastController, private tokenSerivce: TokenServiceService) { }
 
   ngOnInit() {}
 
@@ -40,7 +42,7 @@ export class LoginComponent  implements OnInit {
       //this.state.users.push(response.responseData.token);
 
       this.tokenSerivce.setToken(response.responseData!.token);
-
+      await this.router.navigate(['/home']);
       const toast = await this.toastController.create({
         message: 'Du er nu logget ind',
         duration: 1233,

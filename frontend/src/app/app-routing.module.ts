@@ -15,30 +15,11 @@ import {WebShopComponent} from "./web-shop/web-shop.component";
 const routes: Routes = [
   {
     path: 'home', component: HomeComponent,
-    title: 'Home Page'
+    title: 'Hjemmeside'
   },
   {
     path: 'details/:id', component: ProductDetailComponent,
-    title: 'Details'
-  },
-  {
-    path: 'list-customer', component: ListUserComponent
-  },
-  {
-    path: 'login', component: LoginComponent,
-    title: 'Log in'
-  },
-  {
-    path: 'signup', component: SignupComponent,
-    title: 'Sign up'
-  },
-  {
-    path: 'add-product', component: AddProductComponent,
-    title: 'Add product'
-  },
-  {
-    path: 'check-out', component: CheckOutComponent,
-    title: 'Check out'
+    title: 'Detaljer'
   },
   {
     path: '',
@@ -46,11 +27,31 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'web-shop', component: WebShopComponent,
+    path: '**', component: ErrorComponent
   },
   {
-    path: '**', component: ErrorComponent
-  }
+    path: 'list-customer', component: ListUserComponent
+  },
+  {
+    path: 'login', component: LoginComponent,
+    title: 'Log ind'
+  },
+  {
+    path: 'signup', component: SignupComponent,
+    title: 'Tilmeld dig'
+  },
+  {
+    path: 'add-product', component: AddProductComponent,
+    title: 'Tilføj produkt'
+  },
+  {
+    path: 'check-out', component: CheckOutComponent,
+    title: 'Check ud'
+  },
+  {
+    path: 'web-shop', component: WebShopComponent,
+  },
+
 
 ];
 
